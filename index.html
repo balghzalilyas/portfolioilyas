@@ -1,395 +1,354 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura & Co.</title>
-    <!-- الخطوط والأيقونات العالمية -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- ربط ملف الـ CSS الخارجي -->
-    <link rel="stylesheet" href="styles.css">
+    <title>𝑾 𝑹𝑶𝑶𝑭𝑻𝑶𝑷</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- الفيديو كخلفية موحدة وشاملة للموقع كامل -->
-    <video autoplay muted loop id="bg-video">
-        <source src="video.mp4" type="video/mp4">
-    </video>
-    <div class="global-overlay"></div>
 
-    <header class="navbar">
-        <div class="nav-container">
-            <div class="logo-area">
-                <img src="logo.png" alt="Aura Logo" class="main-logo">
-            </div>
+    <header class="navbar-futuristic">
+        <!-- الجهة اليسرى: الأقسام -->
+        <nav class="nav-left-links">
+            <a href="#menu-section" data-translate="nav_menu">𝑴𝑬𝑵𝑼 𝑾 𝑹𝑶𝑶𝑭𝑻𝑶𝑷</a>
+            <a href="#brunch-section" data-translate="nav_brunch">𝑩𝑹𝑼𝑵𝑪𝑯 𝑾 𝑹𝑶𝑶𝑭𝑻𝑶𝑷</a>
+            <a href="#antepasto-section" data-translate="nav_antepasto">𝑴𝑬𝑵𝑼 𝑨𝑵𝑻𝑬𝑷𝑨𝑺𝑻𝑶</a>
+           
+        </nav>
+
+       
+        <div class="nav-center-brand">
+             <img src="logo2.png" alt="Logo W" class="brand-logo">
+            <span class="brand-name">𝑹𝑶𝑶𝑭𝑻𝑶𝑷</span>
             
-            <nav class="main-nav">
-                <a href="#home">𝑯𝑶𝑴𝑬</a>
-                <a href="#clothing">𝑪𝒍𝒐𝒕𝒉𝒊𝒏𝒈</a>
-                <a href="#baggy-trousers">𝑳𝒐𝒐𝒔𝒆 𝑭𝒊𝒕</a>
-                <a href="#footwear">𝑭𝒐𝒐𝒕𝒘𝒆𝒂𝒓</a>
-            </nav>
+        </div>
 
-            <div class="nav-tools">
-                <div class="search-container" id="searchContainer">
-                    <input type="text" placeholder="Search built products...">
-                </div>
-                <a href="#" id="searchIcon"><i class="fas fa-search"></i></a>
-                
-                <!-- أيقونة فتح الحساب -->
-                <a href="#" id="accountIcon"><i class="far fa-user"></i></a>
-                
-                <!-- أيقونة السلة مع العداد المباشر -->
-                <a href="#" id="cartIcon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span id="cart-count">0</span>
-                </a>
+        <!-- الجهة اليمنى: الأدوات التفاعلية شغالين -->
+        <div class="nav-right-tools">
+            <div class="search-wrapper">
+                <input type="text" id="search-input" placeholder="𝑩𝒖𝒔𝒄𝒂𝒓 𝒑𝒓𝒂𝒕𝒐..." onkeyup="searchDishes()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <a href="https://maps.app.goo.gl/4ZfMhJRwKjLAyPn67" target="_blank" class="tool-btn" title="Localização Exata">
+                <i class="fa-solid fa-location-dot"></i>
+            </a>
 
-                <div class="lang-selector-nav">
-                    <select id="language">
-                        <option value="en">𝑬𝑵</option>
-                        <option value="fr">𝑭𝑹</option>
-                        <option value="ar">𝑨𝑹</option>
-                        <option value="es">𝑬𝑺</option>
-                        <option value="ger">𝑮𝑬𝑹</option>
-                    </select>
+            <div class="lang-wrapper">
+                <button class="lang-trigger"><i class="fa-solid fa-globe"></i> <span id="current-lang">𝑷𝑻</span></button>
+                <div class="lang-menu">
+                    <button onclick="changeLanguage('pt')">Português (PT)</button>
+                    <button onclick="changeLanguage('en')">English (EN)</button>
+                    <button onclick="changeLanguage('fr')">Français (FR)</button>
+                    <button onclick="changeLanguage('ar')">Arabic (AR)</button> 
                 </div>
+            </div>
+
+            <!-- اللوغين الشغال (Popup) -->
+            <button class="tool-btn login-trigger-btn" onclick="toggleLoginModal()">
+                <i class="fa-solid fa-user"></i> <span data-translate="login_btn">𝑳𝒐𝒈𝒊𝒏</span>
+            </button>
+
+            <!-- السلة التفاعلية الشغالة -->
+            <div class="cart-wrapper" onclick="toggleCartModal()">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-badge" id="cart-counter">0</span>
             </div>
         </div>
     </header>
 
-    <!-- الـ Hero Section الرئيسي للموقع -->
-    <section id="home" class="hero-video-container">
-        <div class="hero-content">
-            <h1>𝑨𝑼𝑹𝑨 & 𝑪𝑶</h1>
-            <p>𝑸𝒖𝒊𝒆𝒕 𝑳𝒖𝒙𝒖𝒓𝒚 & 𝑻𝒉𝒆 𝑷𝒖𝒓𝒆𝒔𝒕 𝑶𝒍𝒅 𝑴𝒐𝒏𝒆𝒚 𝑨𝒆𝒔𝒕𝒉𝒆𝒕𝒊𝒄</p>
-            <a href="#clothing" class="btn-primary">𝑺𝑯𝑶𝑷 𝑪𝑶𝑳𝑳𝑬𝑪𝑻𝑰𝑶𝑵</a>
-        </div>
-    </section>
-
-    <!-- 1. قسم الملابس الراقية (CLOTHING) - 10 منتجات واجدة -->
-    <section id="clothing" class="products-grid">
-        <h2 class="section-title">𝑪𝒍𝒂𝒔𝒔𝒊𝒄 𝑲𝒏𝒊𝒕𝒔 & 𝑷𝒐𝒍𝒐𝒔</h2>
-        <div class="container">
-            <div class="product-card" data-id="c1" data-name="Old Money Knit Polo 01" data-price="450">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face">
-                        <img src="knit1.png" alt="Front">
-                    </div>
-                    <div class="img-container back-face">
-                        <img src="knite2.png" alt="Back">
+    <!-- 🌟 واجهة العرض الـ 3D والأقسام -->
+    <main class="content-container">
+        
+        <!-- قسم MENU -->
+        <section id="menu-section" class="grid-section">
+            <h2 class="section-title" data-translate="title_menu"></h2>
+            <div class="dishes-3d-grid">
+                <div class="dish-card-3d" data-name="𝒑𝒓𝒂𝒕𝒐 𝒑𝒓𝒆𝒎𝒊𝒖𝒎 𝒊𝒕𝒂𝒍𝒊𝒂𝒏𝒂">
+                    <div class="card-glow"></div>
+                    <div class="img-container"><img src="piz2 chicken.png" alt="Dish 1"></div>
+                    <div class="dish-details">
+                        <h3>𝒑𝒓𝒂𝒕𝒐 𝒑𝒓𝒆𝒎𝒊𝒖𝒎 𝒊𝒕𝒂𝒍𝒊𝒂𝒏𝒂</h3>
+                        <div class="price-row">
+                            <span class="price">𝑹$ 𝟖𝟗,𝟎𝟎</span>
+                            <button class="add-btn" onclick="addToCart('Prato Premium Italiana', 89)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
                     </div>
                 </div>
-                <div class="product-info">
-                    <h3>𝑶𝒍𝒅 𝑴𝒐𝒏𝒆𝒚 𝑲𝒏𝒊𝒕 𝑷𝒐𝒍𝒐 𝟎𝟏</h3>
-                    <p class="price">𝟒𝟓𝟎.𝟎𝟎 𝑫𝑯</p>
-                    <button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button>
+            <div class="dishes-3d-grid">
+                <div class="dish-card-3d" data-name="𝒑𝒓𝒂𝒕𝒐 𝒑𝒓𝒆𝒎𝒊𝒖𝒎 𝒊𝒕𝒂𝒍𝒊𝒂𝒏𝒂">
+                    <div class="card-glow"></div>
+                    <div class="img-container"><img src="piz1.png" alt="Dish 1"></div>
+                    <div class="dish-details">
+                        <h3>𝒑𝒓𝒂𝒕𝒐 𝒑𝒓𝒆𝒎𝒊𝒖𝒎 𝒊𝒕𝒂𝒍𝒊𝒂𝒏𝒂</h3>
+                        <div class="price-row">
+                            <span class="price">𝑹$ 𝟖𝟗,𝟎𝟎</span>
+                            <button class="add-btn" onclick="addToCart('Prato Premium Italiana', 89)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            <div class="dishes-3d-grid">
+                <div class="dish-card-3d" data-name="𝒑𝒓𝒂𝒕𝒐 𝒑𝒓𝒆𝒎𝒊𝒖𝒎 𝒊𝒕𝒂𝒍𝒊𝒂𝒏𝒂">
+                    <div class="card-glow"></div>
+                    <div class="img-container"><img src="pic3.png" alt="Dish 1"></div>
+                    <div class="dish-details">
+                        <h3>𝒑𝒓𝒂𝒕𝒐 𝒑𝒓𝒆𝒎𝒊𝒖𝒎 𝒊𝒕𝒂𝒍𝒊𝒂𝒏𝒂</h3>
+                        <div class="price-row">
+                            <span class="price">𝑹$ 𝟖𝟗,𝟎𝟎</span>
+                            <button class="add-btn" onclick="addToCart('Prato Premium Italiana', 89)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <!-- كرر الكروت هنا للوصول لـ 10 أطباق -->
+                <div class="dish-card-3d" data-name="𝒈𝒐𝒖𝒓𝒎𝒆𝒕 𝒄𝒂𝒓𝒑𝒂𝒄𝒄𝒊𝒐">
+                    <div class="card-glow"></div>
+                    <div class="img-container"><img src="menu2.png" alt="Dish 2"></div>
+                    <div class="dish-details">
+                        <h3>𝒈𝒐𝒖𝒓𝒎𝒆𝒕 𝒄𝒂𝒓𝒑𝒂𝒄𝒄𝒊𝒐o</h3>
+                        <div class="price-row">
+                            <span class="price">𝑹$ 𝟕𝟒,𝟎𝟎</span>
+                            <button class="add-btn" onclick="addToCart('Gourmet Carpaccio', 74)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- منتج 2 -->
-            <div class="product-card" data-id="c2" data-name="Old Money Knit Polo 02" data-price="450">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="knite5.png"></div>
-                    <div class="img-container back-face"><img src="knite6.png"></div>
+            <div class="dish-card-3d" data-name="𝒔𝒂𝒍𝒂𝒅 𝒇𝒓𝒆𝒔𝒄𝒂">
+                <div class="card-glow"></div>
+                <div class="img-container"><img src="sl2.png" alt="Dish 3"></div>
+                <div class="dish-details">
+                    <h3>𝒔𝒂𝒍𝒂𝒅 𝒇𝒓𝒆𝒔𝒄𝒂</h3>
+                    <div class="price-row">
+                        <span class="price">𝑹$ 𝟑𝟗,𝟎𝟎</span>
+                        <button class="add-btn" onclick="addToCart('Salad Fresca', 39)"><i class="fa-solid fa-plus"></i></button>
+                    </div>
                 </div>
-                <div class="product-info"><h3>𝑶𝒍𝒅 𝑴𝒐𝒏𝒆𝒚 𝑲𝒏𝒊𝒕 𝑷𝒐𝒍𝒐 𝟎𝟐</h3><p class="price">𝟒𝟓𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 3 -->
-            <div class="product-card" data-id="c3" data-name="Old Money Knit Polo 03" data-price="480">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="pol1.png"></div>
-                    <div class="img-container back-face"><img src="pol2.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑶𝒍𝒅 𝑴𝒐𝒏𝒆𝒚 𝑲𝒏𝒊𝒕 𝑷𝒐𝒍𝒐 𝟎𝟑</h3><p class="price">𝟒𝟖𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 4 -->
-            <div class="product-card" data-id="c4" data-name="Classic Luxury Shirt 04" data-price="500">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="knite4.png"></div>
-                    <div class="img-container back-face"><img src="knite3.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑪𝒍𝒂𝒔𝒔𝒊𝒄 𝑳𝒖𝒙𝒖𝒓𝒚 𝑺𝒉𝒊𝒓𝒕 𝟎𝟒</h3><p class="price">𝟓𝟎𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 5 -->
-            <div class="product-card" data-id="c5" data-name="Classic Luxury Shirt 05" data-price="500">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="200.png"></div>
-                    <div class="img-container back-face"><img src="100.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑪𝒍𝒂𝒔𝒔𝒊𝒄 𝑳𝒖𝒙𝒖𝒓𝒚 𝑺𝒉𝒊𝒓𝒕 𝟎𝟓</h3><p class="price">𝟓𝟎𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 6 -->
-            <div class="product-card" data-id="c6" data-name="Premium Linen Tee 06" data-price="390">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="knit34.png"></div>
-                    <div class="img-container back-face"><img src="pin9.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑳𝒊𝒏𝒆𝒏 𝑻𝒆𝒆 𝟎𝟔</h3><p class="price">𝟑𝟗𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 7 -->
-            <div class="product-card" data-id="c7" data-name="Premium Linen Tee 07" data-price="390">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="pin5.png"></div>
-                    <div class="img-container back-face"><img src="pin6.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑳𝒊𝒏𝒆𝒏 𝑻𝒆𝒆 𝟎𝟕</h3><p class="price">𝟑𝟗𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 8 -->
-            <div class="product-card" data-id="c8" data-name="Vintage Textured Polo 08" data-price="460">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="pin2.png"></div>
-                    <div class="img-container back-face"><img src="pin1.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑽𝒊𝒏𝒕𝒂𝒈𝒆 𝑻𝒆𝒙𝒕𝒖𝒓𝒆𝒅 𝑷𝒐𝒍𝒐 𝟎𝟖</h3><p class="price">𝟒𝟔𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 9 -->
-            <div class="product-card" data-id="c9" data-name="Vintage Textured Polo 09" data-price="460">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="pin4.png"></div>
-                    <div class="img-container back-face"><img src="pin5.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑽𝒊𝒏𝒕𝒂𝒈𝒆 𝑻𝒆𝒙𝒕𝒖𝒓𝒆𝒅 𝑷𝒐𝒍𝒐 𝟎𝟗</h3><p class="price">𝟒𝟔𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 10 -->
-            <div class="product-card" data-id="c10" data-name="Signature Summer Knit 10" data-price="520">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="jacket3.png"></div>
-                    <div class="img-container back-face"><img src="jacket4.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑺𝒊𝒈𝒏𝒂𝒕𝒖𝒓𝒆 𝑺𝒖𝒎𝒎𝒆𝒓 𝑲𝒏𝒊𝒕 𝟏𝟎</h3><p class="price">𝟓𝟐𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-        </div>
-    </section>
+               
+        </section>
 
-    <!-- 2. قسم السراول الباغي (LOOSE FIT) - 10 منتجات واجدة -->
-    <section id="baggy-trousers" class="products-grid">
-        <h2 class="section-title">𝑳𝒐𝒐𝒔𝒆 𝑭𝒊𝒕 𝑻𝒓𝒐𝒖𝒔𝒆𝒓𝒔</h2>
-        <div class="container">
-            <!-- منتج 1 -->
-            <div class="product-card" data-id="t1" data-name="Tailored Loose Fit Pants 01" data-price="550">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="baqi6.png"></div>
-                    <div class="img-container back-face"><img src="baqi5.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑻𝒂𝒊𝒍𝒐𝒓𝒆𝒅 𝑳𝒐𝒐𝒔𝒆 𝑭𝒊𝒕 𝑷𝒂𝒏𝒕𝒔 </h3><p class="price">𝟓𝟓𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
+        
+        <section id="brunch-section" class="grid-section">
+            <h2 class="section-title" data-translate="title_brunch"></h2>
+            
             </div>
-            <!-- منتج 2 -->
-            <div class="product-card" data-id="t2" data-name="Tailored Loose Fit Pants 02" data-price="550">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="serwal@.png"></div>
-                    <div class="img-container back-face"><img src="baqqi7.png"></div>
+            <div class="dishes-3d-grid"><div class="dishes-3d-grid">
+                <div class="dish-card-3d" data-name="brunch benedict">
+                    <div class="card-glow"></div>
+                    <div class="img-container"><img src="kas4.png" alt="Brunch 1"></div>
+                    <div class="dish-details">
+                        <h3>𝑩𝒓𝒖𝒏𝒄𝒉 𝑩𝒆𝒏𝒆𝒅𝒊𝒄𝒕</h3>
+                        <div class="price-row">
+                            <span class="price">𝑹$ 𝟒𝟓,𝟎𝟎</span>
+                            <button class="add-btn" onclick="addToCart('Brunch Benedict', 45)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="product-info"><h3>𝑻𝒂𝒊𝒍𝒐𝒓𝒆𝒅 𝑳𝒐𝒐𝒔𝒆 𝑭𝒊𝒕 𝑷𝒂𝒏𝒕𝒔 </h3><p class="price">𝟓𝟓𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
             </div>
-            <!-- منتج 3 -->
-            <div class="product-card" data-id="t3" data-name="Luxury Linen Baggy 03" data-price="580">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="baqqi2.png"></div>
-                    <div class="img-container back-face"><img src="baqi4.png"></div>
+            <div class="dish-card-3d" data-name="brunch benedict">
+                    <div class="card-glow"></div>
+                    <div class="img-container"><img src="cafe.png" alt="Brunch 1"></div>
+                    <div class="dish-details">
+                        <h3>𝑩𝒓𝒖𝒏𝒄𝒉 𝑩𝒆𝒏𝒆𝒅𝒊𝒄𝒕</h3>
+                        <div class="price-row">
+                            <span class="price">𝑹$ 𝟒𝟓,𝟎𝟎</span>
+                            <button class="add-btn" onclick="addToCart('Brunch Benedict', 45)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="product-info"><h3>𝑳𝒖𝒙𝒖𝒓𝒚 𝑳𝒊𝒏𝒆𝒏 𝑩𝒂𝒈𝒈𝒚 </h3><p class="price">𝟓𝟖𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 4 -->
-            <div class="product-card" data-id="t4" data-name="Luxury Linen Baggy 04" data-price="580">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="short9.png"></div>
-                    <div class="img-container back-face"><img src="short2.png"></div>
+            <div class="dishes-3d-grid">
+                <div class="dish-card-3d" data-name="brunch benedict">
+                    <div class="card-glow"></div>
+                    <div class="img-container"><img src="kas.png" alt="Brunch 1"></div>
+                    <div class="dish-details">
+                        <h3>𝑩𝒓𝒖𝒏𝒄𝒉 𝑩𝒆𝒏𝒆𝒅𝒊𝒄𝒕</h3>
+                        <div class="price-row">
+                            <span class="price">𝑹$ 𝟒𝟓,𝟎𝟎</span>
+                            <button class="add-btn" onclick="addToCart('Brunch Benedict', 45)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="product-info"><h3>𝑳𝒖𝒙𝒖𝒓𝒚 𝑳𝒊𝒏𝒆𝒏 𝑩𝒂𝒈𝒈𝒚 𝟎</h3><p class="price">𝟓𝟖𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 5 -->
-            <div class="product-card" data-id="t5" data-name="Classic Pleated Baggy 05" data-price="620">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="short1.png"></div>
-                    <div class="img-container back-face"><img src="short3.png"></div>
+                <div class="dishes-3d-grid">
+                <div class="dish-card-3d" data-name="brunch benedict">
+                    <div class="card-glow"></div>
+                    <div class="img-container"><img src="kas6.png" alt="Brunch 1"></div>
+                    <div class="dish-details">
+                        <h3>𝑩𝒓𝒖𝒏𝒄𝒉 𝑩𝒆𝒏𝒆𝒅𝒊𝒄𝒕</h3>
+                        <div class="price-row">
+                            <span class="price">𝑹$ 𝟒𝟓,𝟎𝟎</span>
+                            <button class="add-btn" onclick="addToCart('Brunch Benedict', 45)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="product-info"><h3>𝑪𝒍𝒂𝒔𝒔𝒊𝒄 𝑷𝒍𝒆𝒂𝒕𝒆𝒅 𝑩𝒂𝒈𝒈𝒚 </h3><p class="price">𝟔𝟐𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
             </div>
-            <!-- منتج 6 -->
-            <div class="product-card" data-id="t6" data-name="Classic Pleated Baggy 06" data-price="620">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="baqikit.png"></div>
-                    <div class="img-container back-face"><img src="srwalkit.png"></div>
+                <div class="dish-card-3d" data-name="brunch benedict">
+                    <div class="card-glow"></div>
+                    <div class="img-container"><img src="cafe.png" alt="Brunch 1"></div>
+                    <div class="dish-details">
+                        <h3>𝑩𝒓𝒖𝒏𝒄𝒉 𝑩𝒆𝒏𝒆𝒅𝒊𝒄𝒕</h3>
+                        <div class="price-row">
+                            <span class="price">𝑹$ 𝟒𝟓,𝟎𝟎</span>
+                            <button class="add-btn" onclick="addToCart('Brunch Benedict', 45)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="product-info"><h3>𝑪𝒍𝒂𝒔𝒔𝒊𝒄 𝑷𝒍𝒆𝒂𝒕𝒆𝒅 𝑩𝒂𝒈𝒈𝒚</h3><p class="price">𝟔𝟐𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
             </div>
-            <!-- منتج 7 -->
-            <div class="product-card" data-id="t7" data-name="Casual Summer Chino 07" data-price="490">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="nike2.png"></div>
-                    <div class="img-container back-face"><img src="nike8.png"></div>
+            <div class="dishes-3d-grid">
+                <div class="dish-card-3d" data-name="brunch benedict">
+                    <div class="card-glow"></div>
+                    <div class="img-container"><img src="KAS2.png" alt="Brunch 1"></div>
+                    <div class="dish-details">
+                        <h3>𝑩𝒓𝒖𝒏𝒄𝒉 𝑩𝒆𝒏𝒆𝒅𝒊𝒄𝒕</h3>
+                        <div class="price-row">
+                            <span class="price">𝑹$ 𝟒𝟓,𝟎𝟎</span>
+                            <button class="add-btn" onclick="addToCart('Brunch Benedict', 45)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="product-info"><h3>𝑪𝒂𝒔𝒖𝒂𝒍 𝑺𝒖𝒎𝒎𝒆𝒓 𝑪𝒉𝒊𝒏𝒐 </h3><p class="price">𝟒𝟗𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
             </div>
-            <!-- منتج 8 -->
-            <div class="product-card" data-id="t8" data-name="Casual Summer Chino 08" data-price="490">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="2serawl.png"></div>
-                    <div class="img-container back-face"><img src="3serawl.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑪𝒂𝒔𝒖𝒂𝒍 𝑺𝒖𝒎𝒎𝒆𝒓 𝑪𝒉𝒊𝒏𝒐 </h3><p class="price">𝟒𝟗𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 9 -->
-            <div class="product-card" data-id="t9" data-name="Premium Retro Denim 09" data-price="650">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="tjen1.png"></div>
-                    <div class="img-container back-face"><img src="tjen5.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑹𝒆𝒕𝒓𝒐 𝑫𝒆𝒏𝒊𝒎</h3><p class="price">𝟔𝟓𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 10 -->
-            <div class="product-card" data-id="t10" data-name="Premium Retro Denim 10" data-price="650">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="900.png"></div>
-                    <div class="img-container back-face"><img src="1000.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑹𝒆𝒕𝒓𝒐 𝑫𝒆𝒏𝒊𝒎 </h3><p class="price">𝟔𝟓𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-        </div>
-    </section>
+            
+        </section>
 
-    <!-- 3. قسم الأحذية والصنادل (FOOTWEAR) - 10 منتجات واجدة -->
-    <section id="footwear" class="products-grid">
-        <h2 class="section-title">𝑪𝒍𝒂𝒔𝒔𝒊𝒄 𝑺𝒂𝒏𝒅𝒂𝒍𝒔 & 𝑺𝒏𝒆𝒂𝒌𝒆𝒓𝒔</h2>
-        <div class="container">
-            <!-- منتج 1 -->
-            <div class="product-card" data-id="f1" data-name="Riviera Leather Sandals 01" data-price="600">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="2000.png"></div>
-                    <div class="img-container back-face"><img src="3000.png"></div>
+        <section id="antepasto-section" class="grid-section">
+            <h2 class="section-title" data-translate="title_antepasto"></h2>
+            <div class="dishes-3d-grid">
+                <div class="dish-card-3d" data-name="antepasto misto">
+                    
+                    <div class="dish-card-3d" data-name="brunch benedict">
+                    <div class="card-glow"></div>
+                    <div class="img-container"><img src="menu9.png" alt="Brunch 1"></div>
+                    <div class="dish-details">
+                        <h3>𝑩𝒓𝒖𝒏𝒄𝒉 𝑩𝒆𝒏𝒆𝒅𝒊𝒄𝒕</h3>
+                        <div class="price-row">
+                            <span class="price">𝑹$ 𝟒𝟓,𝟎𝟎</span>
+                            <button class="add-btn" onclick="addToCart('Brunch Benedict', 45)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="product-info"><h3>𝑹𝒊𝒗𝒊𝒆𝒓𝒂 𝑳𝒆𝒂𝒕𝒉𝒆𝒓 𝑺𝒂𝒏𝒅𝒂𝒍𝒔 </h3><p class="price">𝟔𝟎𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 2 -->
-            <div class="product-card" data-id="f2" data-name="Riviera Leather Sandals 02" data-price="600">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="sobat 3.png"></div>
-                    <div class="img-container back-face"><img src="sobat2.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑹𝒊𝒗𝒊𝒆𝒓𝒂 𝑳𝒆𝒂𝒕𝒉𝒆𝒓 𝑺𝒂𝒏𝒅𝒂𝒍𝒔 </h3><p class="price">𝟔𝟎𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 3 -->
-            <div class="product-card" data-id="f3" data-name="Heritage Suede Slides 03" data-price="550">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="puma2.png"></div>
-                    <div class="img-container back-face"><img src="puma3.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑯𝒆𝒓𝒊𝒕𝒂𝒈𝒆 𝑺𝒖𝒆𝒅𝒆 𝑺𝒍𝒊𝒅𝒆𝒔 </h3><p class="price">𝟓𝟓𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 4 -->
-            <div class="product-card" data-id="f4" data-name="Heritage Suede Slides 04" data-price="550">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="air2.png"></div>
-                    <div class="img-container back-face"><img src="air1.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑯𝒆𝒓𝒊𝒕𝒂𝒈𝒆 𝑺𝒖𝒆𝒅𝒆 𝑺𝒍𝒊𝒅𝒆𝒔 </h3><p class="price">𝟓𝟓𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 5 -->
-            <div class="product-card" data-id="f5" data-name="Old Money Minimalist Sneaker 05" data-price="850">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="new2.png"></div>
-                    <div class="img-container back-face"><img src="Naw1.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑶𝒍𝒅 𝑴𝒐𝒏𝒆𝒚 𝑴𝒊𝒏𝒊𝒎𝒂𝒍𝒊𝒔𝒕 𝑺𝒏𝒆𝒂𝒌𝒆𝒓 </h3><p class="price">𝟖𝟓𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 6 -->
-            <div class="product-card" data-id="f6" data-name="Old Money Minimalist Sneaker 06" data-price="850">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="4000.png"></div>
-                    <div class="img-container back-face"><img src="5000.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑶𝒍𝒅 𝑴𝒐𝒏𝒆𝒚 𝑴𝒊𝒏𝒊𝒎𝒂𝒍𝒊𝒔𝒕 𝑺𝒏𝒆𝒂𝒌𝒆𝒓 </h3><p class="price">𝟖𝟓𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 7 -->
-            <div class="product-card" data-id="f7" data-name="Classic Boat Shoes 07" data-price="790">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="old2.png"></div>
-                    <div class="img-container back-face"><img src="old1.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑪𝒍𝒂𝒔𝒔𝒊𝒄 𝑩𝒐𝒂𝒕 𝑺𝒉𝒐𝒆𝒔</h3><p class="price">𝟕𝟗𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 8 -->
-            <div class="product-card" data-id="f8" data-name="Classic Boat Shoes 08" data-price="790">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="222.png"></div>
-                    <div class="img-container back-face"><img src="333.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑪𝒍𝒂𝒔𝒔𝒊𝒄 𝑩𝒐𝒂𝒕 𝑺𝒉𝒐𝒆𝒔 </h3><p class="price">𝟕𝟗𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 9 -->
-            <div class="product-card" data-id="f9" data-name="Premium Leather Loafers 09" data-price="950">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="90.png"></div>
-                    <div class="img-container back-face"><img src="80.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑳𝒆𝒂𝒕𝒉𝒆𝒓 𝑳𝒐𝒂𝒇𝒆𝒓𝒔</h3><p class="price">𝟗𝟓𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-            <!-- منتج 10 -->
-            <div class="product-card" data-id="f10" data-name="Premium Leather Loafers 10" data-price="950">
-                <div class="card-3d-inner">
-                    <div class="img-container front-face"><img src="7000.png"></div>
-                    <div class="img-container back-face"><img src="6000.png"></div>
-                </div>
-                <div class="product-info"><h3>𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑳𝒆𝒂𝒕𝒉𝒆𝒓 𝑳𝒐𝒂𝒇𝒆𝒓𝒔 </h3><p class="price">𝟗𝟓𝟎.𝟎𝟎 𝑫𝑯</p><button class="add-to-cart-btn">𝑨𝑫𝑫 𝑻𝑶 𝑪𝑨𝑹𝑻</button></div>
-            </div>
-        </div>
-    </section>
 
-    <!-- سلة المشتريات الجانبية -->
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h2>YOUR SHOPPING CART</h2>
-            <span class="close-cart" id="closeCart">&times;</span>
-        </div>
-        <div class="cart-items-container" id="cartItems"></div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>TOTAL:</span>
-                <span id="cartTotalSum">0.00 DH</span>
+                </div>
+                    <div class="dish-card-3d" data-name="antepasto misto">
+                    <div class="card-glow"></div>
+                    <div class="img-container"><img src="menu5.png" alt="Antepasto 1"></div>
+                    <div class="dish-details">
+                        <h3>𝑨𝒏𝒕𝒆𝒑𝒂𝒔𝒕𝒐 𝑴𝒊𝒔𝒕𝒐</h3>
+                        <div class="price-row">
+                            <span class="price">𝑹$ 𝟓𝟓,𝟎𝟎</span>
+                            <button class="add-btn" onclick="addToCart('Antepasto Misto', 55)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                   
+                <div class="dish-card-3d" data-name="antepasto misto">
+                    <div class="card-glow"></div>
+                    <div class="img-container"><img src="menu7.png" alt="Antepasto 1"></div>
+                    <div class="dish-details">
+                        <h3>𝑨𝒏𝒕𝒆𝒑𝒂𝒔𝒕𝒐 𝑴𝒊𝒔𝒕𝒐</h3>
+                        <div class="price-row">
+                            <span class="price">𝑹$ 𝟓𝟓,𝟎𝟎</span>
+                            <button class="add-btn" onclick="addToCart('Antepasto Misto', 55)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="dish-card-3d" data-name="antepasto misto">
+                    <div class="card-glow"></div>
+                    <div class="img-container"><img src="menu7.png" alt="Antepasto 1"></div>
+                    <div class="dish-details">
+                        <h3>𝑨𝒏𝒕𝒆𝒑𝒂𝒔𝒕𝒐 𝑴𝒊𝒔𝒕𝒐</h3>
+                        <div class="price-row">
+                            <span class="price">𝑹$ 𝟓𝟓,𝟎𝟎</span>
+                            <button class="add-btn" onclick="addToCart('Antepasto Misto', 55)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="dish-card-3d" data-name="antepasto misto">
+                    <div class="card-glow"></div>
+                    <div class="img-container"><img src="menu7.png" alt="Antepasto 1"></div>
+                    <div class="dish-details">
+                        <h3>𝑨𝒏𝒕𝒆𝒑𝒂𝒔𝒕𝒐 𝑴𝒊𝒔𝒕𝒐</h3>
+                        <div class="price-row">
+                            <span class="price">𝑹$ 𝟓𝟓,𝟎𝟎</span>
+                            <button class="add-btn" onclick="addToCart('Antepasto Misto', 55)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="dish-card-3d" data-name="antepasto misto">
+                    <div class="card-glow"></div>
+                    <div class="img-container"><img src="menu7.png" alt="Antepasto 1"></div>
+                    <div class="dish-details">
+                        <h3>𝑨𝒏𝒕𝒆𝒑𝒂𝒔𝒕𝒐 𝑴𝒊𝒔𝒕𝒐</h3>
+                        <div class="price-row">
+                            <span class="price">𝑹$ 𝟓𝟓,𝟎𝟎</span>
+                            <button class="add-btn" onclick="addToCart('Antepasto Misto', 55)"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button class="checkout-btn">PROCEED TO CHECKOUT</button>
-        </div>
-    </div>
+            
+        </section>
+    </main>
 
-    <!-- نافذة تسجيل الدخول والملف الشخصي -->
-    <div class="account-modal" id="accountModal">
-        <div class="modal-content">
-            <span class="close-modal" id="closeModal">&times;</span>
-            <div id="loginForm">
-                <h3>LOGIN TO ACCOUNT</h3>
-                <input type="email" placeholder="Your Email" required>
-                <input type="password" placeholder="Password" required>
-                <button class="modal-submit">SIGN IN</button>
-                <p class="switch-form" id="toSignUp">Don't have an account? Create one</p>
+    <!-- 🌟 النافذة المنبثقة للـ Login وإنشاء حساب (Modal) -->
+    <div id="login-modal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="close-modal" onclick="toggleLoginModal()">&times;</button>
+            
+            <!-- فورم تسجيل الدخول -->
+            <div id="login-form-wrapper">
+                <h2 data-translate="login_title">𝑬𝒏𝒕𝒓𝒂𝒓 𝒏𝒂 𝑪𝒐𝒏𝒕𝒂</h2>
+                <input type="email" placeholder="E-mail" class="modal-input">
+                <input type="password" placeholder="Senha" class="modal-input">
+                <button class="submit-modal-btn" data-translate="login_submit">𝑬𝒏𝒕𝒓𝒂𝒓</button>
+                <p class="switch-form-text">𝑵𝒂̃𝒐 𝒕𝒆𝒎 𝒄𝒐𝒏𝒕𝒂? <span onclick="switchForm(true)">𝑪𝒓𝒊𝒂𝒓 𝑪𝒐𝒏𝒕𝒂</span></p>
             </div>
-            <div id="signUpForm" style="display: none;">
-                <h3>CREATE AN ACCOUNT</h3>
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <input type="password" placeholder="Password" required>
-                <button class="modal-submit">REGISTER</button>
-                <p class="switch-form" id="toLogin">Already have an account? Login</p>
+
+            <!-- فورم إنشاء حساب جديد -->
+            <div id="register-form-wrapper" style="display: none;">
+                <h2 data-translate="register_title">𝑪𝒓𝒊𝒂𝒓 𝑵𝒐𝒗𝒂 𝑪𝒐𝒏𝒕𝒂</h2>
+                <input type="text" placeholder="Nome Completo" class="modal-input">
+                <input type="email" placeholder="E-mail" class="modal-input">
+                <input type="password" placeholder="Senha" class="modal-input">
+                <button class="submit-modal-btn" data-translate="register_submit">𝑪𝒂𝒅𝒂𝒔𝒕𝒓𝒂𝒓</button>
+                <p class="switch-form-text">𝑱𝒂́ 𝒕𝒆𝒎 𝒄𝒐𝒏𝒕𝒂?<span onclick="switchForm(false)">𝑭𝒂𝒛𝒆𝒓 𝑳𝒐𝒈𝒊𝒏</span></p>
             </div>
         </div>
     </div>
 
-    <footer class="footer-3d-marquee">
-        <div class="marquee-content">
-            <span><i class="fas fa-truck"></i> 𝑺𝑯𝑰𝑷𝑷𝑰𝑵𝑮 𝑾𝑶𝑹𝑳𝑫𝑾𝑰𝑫𝑬 𝑨𝑵𝑫 𝑭𝑨𝑺𝑻 𝑫𝑬𝑳𝑰𝑽𝑬𝑹𝒀</span>
-            <span><i class="fab fa-instagram"></i> 𝑰𝑵𝑺𝑻𝑨𝑮𝑹𝑨𝑴: @𝑨𝑼𝑹𝑨_𝑪𝑶</span>
-            <span><i class="fas fa-envelope"></i> 𝑬𝑴𝑨𝑰𝑳: 𝑪𝑶𝑵𝑻𝑨𝑪𝑻@𝑨𝑼𝑹𝑨𝑪𝑶.𝑪𝑶𝑴</span>
-            <span><i class="fab fa-whatsapp"></i> 𝑾𝑯𝑨𝑻𝑺𝑨𝑷𝑷: +𝟐𝟏𝟐 𝟔𝟎𝟎-𝟎𝟎𝟎𝟎𝟎𝟎</span>
-            <span><i class="fas fa-map-marker-alt"></i> 𝑨𝑫𝑫𝑹𝑬𝑺𝑺: 𝟏𝟐𝟑 𝑴𝑨𝑰𝑵 𝑺𝑻𝑹𝑬𝑬𝑻, 𝑪𝑨𝑺𝑨𝑩𝑳𝑨𝑵𝑪𝑨</span>
-            <span><i class="fas fa-truck"></i> 𝑺𝑯𝑰𝑷𝑷𝑰𝑵𝑮 𝑾𝑶𝑹𝑳𝑫𝑾𝑰𝑫𝑬 𝑨𝑵𝑫 𝑭𝑨𝑺𝑻 𝑫𝑬𝑳𝑰𝑽𝑬𝑹𝒀</span>
-            <span><i class="fab fa-instagram"></i> 𝑰𝑵𝑺𝑻𝑨𝑮𝑹𝑨𝑴: @𝑨𝑼𝑹𝑨_𝑪𝑶</span>
-            <span><i class="fas fa-envelope"></i> 𝑬𝑴𝑨𝑰𝑳: 𝑪𝑶𝑵𝑻𝑨𝑪𝑻@𝑨𝑼𝑹𝑨𝑪𝑶.𝑪𝑶𝑴</span>
-            <span><i class="fab fa-whatsapp"></i> 𝑾𝑯𝑨𝑻𝑺𝑨𝑷𝑷: +𝟐𝟏𝟐 𝟔𝟎𝟎-𝟎𝟎𝟎𝟎𝟎𝟎</span>
-            <span><i class="fas fa-map-marker-alt"></i> 𝑨𝑫𝑫𝑹𝑬𝑺𝑺: 𝟏𝟐𝟑 𝑴𝑨𝑰𝑵 𝑺𝑻𝑹𝑬𝑬𝑻, 𝑪𝑨𝑺𝑨𝑩𝑳𝑨𝑵𝑪𝑨</span>
+    <!-- 🌟 نافذة السلة الذكية (Cart Modal) -->
+    <div id="cart-modal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="close-modal" onclick="toggleCartModal()">&times;</button>
+            <h2 data-translate="cart_title">𝑺𝒖𝒂 𝑪𝒂𝒓𝒓𝒊𝒏𝒉𝒐</h2>
+            <div id="cart-items-list">
+                <p style="color: #de3b9f; text-align: center; margin: 20px 0;">𝑺𝒖𝒂 𝒔𝒂𝒄𝒐𝒍𝒂 𝒆𝒔𝒕𝒂́ 𝒗𝒂𝒛𝒊𝒂
+            </div>
+            <div class="cart-summary">
+                <div class="𝒕𝒐𝒕𝒂𝒍-𝒓𝒐𝒘">
+                    <span>𝑻𝒐𝒕𝒂𝒍:</span>
+                    <span id="cart-total-price">𝑹$ 𝟎,𝟎𝟎</span>
+                </div>
+                <!-- زر إرسال الطلب عبر الواتساب مباشرة للكونطاك -->
+                <button class="whatsapp-checkout-btn" onclick="checkoutToWhatsapp()">
+                    <i class="fa-brands fa-whatsapp"></i> 𝑬𝒏𝒗𝒊𝒂𝒓 𝑷𝒆𝒅𝒊𝒅𝒐 𝒗𝒊𝒂 𝑾𝒉𝒂𝒕𝒔𝑨𝒑𝒑
+                </button>
+            </div>
         </div>
-    </footer>
-
-    <!-- ربط ملف الـ JavaScript الخارجي -->
+    </div>
     <script src="script.js"></script>
 </body>
+<footer class="ticker-3d-wrapper">
+    <div class="ticker-3d-track">
+        <a href="https://instagram.com/wrooftopoficial" target="_blank" class="ticker-3d-link">𝑰𝒏𝒔𝒕𝒂𝒈𝒓𝒂𝒎: @𝑾 𝑹𝑶𝑶𝑭𝑻𝑶𝑷</a>
+        <a href="https://maps.app.goo.gl/4ZfMhJRwKjLAyPn67" target="_blank" class="ticker-3d-link">𝑳𝒐𝒄𝒂𝒍𝒊𝒛𝒂𝒄̧𝒂̃𝒐 𝑬𝒙𝒂𝒕𝒂</a>
+        <a href="whatsapp://send?phone=+𝟓𝟓𝟖𝟓𝟗𝟔𝟐𝟏𝟎𝟎𝟑𝟑&text=Olá! Gostaria de fazer um pedido." target="_blank" class="ticker-3d-link">𝑫𝒆𝒍𝒊𝒗𝒆𝒓𝒚 𝑾𝒉𝒂𝒕𝒔𝑨𝒑𝒑: +55 85 9621-0033</a>
+        <a href="https://instagram.com/wrooftopoficial" target="_blank" class="ticker-3d-link">𝑰𝒏𝒔𝒕𝒂𝒈𝒓𝒂𝒎: @𝑾 𝑹𝑶𝑶𝑭𝑻𝑶𝑷</a>
+        <a href="https://maps.app.goo.gl/4ZfMhJRwKjLAyPn67" target="_blank" class="ticker-3d-link"> 𝑳𝒐𝒄𝒂𝒍𝒊𝒛𝒂𝒄̧𝒂̃𝒐 𝑬𝒙𝒂𝒕𝒂</a>
+        <a href="whatsapp://send?phone=+𝟓𝟓𝟖𝟓𝟗𝟔𝟐𝟏𝟎𝟎𝟑𝟑&text=Olá! Gostaria de fazer um pedido." target="_blank" class="ticker-3d-link">𝑫𝒆𝒍𝒊𝒗𝒆𝒓𝒚 𝑾𝒉𝒂𝒕𝒔𝑨𝒑𝒑: +55 85 9621-0033</a>
+        <a href="https://instagram.com/wrooftopoficial" target="_blank" class="ticker-3d-link">𝑰𝒏𝒔𝒕𝒂𝒈𝒓𝒂𝒎: @𝑾 𝑹𝑶𝑶𝑭𝑻𝑶𝑷</a>
+        <a href="https://maps.app.goo.gl/4ZfMhJRwKjLAyPn67" target="_blank" class="ticker-3d-link"> 𝑳𝒐𝒄𝒂𝒍𝒊𝒛𝒂𝒄̧𝒂̃𝒐 𝑬𝒙𝒂𝒕𝒂</a>
+        <a href="whatsapp://send?phone=+𝟓𝟓𝟖𝟓𝟗𝟔𝟐𝟏𝟎𝟎𝟑𝟑&text=Olá! Gostaria de fazer um pedido." target="_blank" class="ticker-3d-link"> 𝑫𝒆𝒍𝒊𝒗𝒆𝒓𝒚 𝑾𝒉𝒂𝒕𝒔𝑨𝒑𝒑: +55 85 9621-0033</a>
+    </div>
+</footer>
 </html>
