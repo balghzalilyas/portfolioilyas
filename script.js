@@ -1,143 +1,190 @@
-let globalCartRegistry = [];
+// قاعدة بيانات المنتجات المهيكلة حسب طلبك الدقيق لجميع الأقسام
+const productsData = [
+    // قسم Chocolat Noir (16 منتج)
+    ...generateProducts('noir', 'Chocolat Noir', 16, 45, 'noir-1.png', 'noir-2.png'),
+    // قسم Chocolat au Lait (16 منتج)
+    ...generateProducts('lait', 'Chocolat au Lait', 16, 40, 'lait-1.png', 'lait-2.png'),
+    // قسم Chocolat Dulcey (5 منتجات)
+    ...generateProducts('dulcey', 'Chocolat Dulcey', 5, 50, 'dulcey-1.png', 'dulcey-2.png'),
+    // قسم Chocolat Sucre (6 منتجات)
+    ...generateProducts('sucre', 'Chocolat Sucre', 6, 35, 'sucre-1.png', 'sucre-2.png'),
+    // قسم Gamme Confiserie (8 منتجات)
+    ...generateProducts('confiserie', 'Gamme Confiserie', 8, 60, 'conf-1.png', 'conf-2.png'),
+    // قسم Collection Ombrelle الكبير والمجموعات الفرعية بداخله
+    ...generateProducts('ombrelle', 'Collection Ombrelle', 6, 450, 'omb-1.png', 'omb-2.png'),
+    ...generateProducts('zlipse', 'Collection Zlipse', 1, 180, 'zlip-1.png', 'zlip-2.png'),
+    ...generateProducts('fuzion', 'Collection Fuzion', 1, 220, 'fuz-1.png', 'fuz-2.png'),
+    ...generateProducts('lumea', 'Collection Lumea', 1, 190, 'lum-1.png', 'lum-2.png'),
+    ...generateProducts('cera', 'Collection Céra', 3, 210, 'cera-1.png', 'cera-2.png'),
+    ...generateProducts('drea', 'Collection Dréa', 1, 250, 'drea-1.png', 'drea-2.png'),
+    ...generateProducts('dorina', 'Collection Dorina', 3, 300, 'dor-1.png', 'dor-2.png'),
+    ...generateProducts('coffrets', 'Nos Coffrets', 10, 150, 'box-1.png', 'box-2.png')
+];
 
-// 1. مراقبة التمرير لتعديل مظهر الهيدر
-window.addEventListener('scroll', function() {
-    let header = document.querySelector('.main-header');
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
+// دالة مساعدة لإنشاء المنتجات والصور التناوبية ثلاثية الأبعاد تلقائياً لتوفير الكفاءة
+function generateProducts(category, prefixName, count, basePrice, imgFront, imgBack) {
+    let list = [];
+    for (let i = 1; i <= count; i++) {
+        list.push({
+            id: `${category}-${i}`,
+            category: category,
+            name: `${prefixName} #0${i}`,
+            price: basePrice + (i * 5),
+            imgFront: imgFront, // الصورة الأولى الأساسية
+            imgBack: imgBack    // الصورة الثانية التي تظهر عند القلب 3D
+        });
     }
+    return list;
+}
+
+let cart = [];
+
+// توليد الكروت وعرضها داخل شبكات الأقسام عند تحميل الموقع
+document.addEventListener("DOMContentLoaded", () => {
+    renderAllGrids();
 });
 
-// 2. أنيميشن الظهور التدريجي للأقسام عند التصفح
-function runRevealAnimation() {
-    let reveals = document.querySelectorAll(".reveal");
-    reveals.forEach(el => {
-        let windowHeight = window.innerHeight;
-        let elementTop = el.getBoundingClientRect().top;
-        if (elementTop < windowHeight - 100) {
-            el.classList.add("active");
-        }
-    });
-}
-window.addEventListener("scroll", runRevealAnimation);
-window.addEventListener("load", runRevealAnimation);
-
-// 3. دالة التحكم في تحريك السلايدر الأفقي بالأسهم الجانبية
-function slideSection(trackId, direction) {
-    const track = document.getElementById(trackId);
-    const scrollAmount = 345; // حجم التحريك المحسوب (حجم الكارد + gap)
+function renderAllGrids() {
+    const categories = ['noir', 'lait', 'dulcey', 'sucre', 'confiserie', 'ombrelle', 'zlipse', 'fuzion', 'lumea', 'cera', 'drea', 'dorina', 'coffrets'];
     
-    if (direction === 'left') {
-        track.scrollLeft -= scrollAmount;
-    } else {
-        track.scrollLeft += scrollAmount;
-    }
-}
-
-// 4. محرك البحث وتصفية المنتجات في الوقت الفعلي
-function searchProduct() {
-    let query = document.getElementById('searchInput').value.toLowerCase();
-    let productCards = document.querySelectorAll('.product-card');
-    
-    productCards.forEach(card => {
-        let productName = card.getAttribute('data-name').toLowerCase();
-        if (productName.includes(query)) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
-    });
-}
-
-// 5. التحكم بنافذة حساب ديكاتلون (فتح/إغلاق)
-function openAuthPage() { document.getElementById('authPageModal').style.display = 'flex'; }
-function closeAuthPage() { document.getElementById('authPageModal').style.display = 'none'; }
-
-function processDecathlonAuth(event) {
-    event.preventDefault();
-    const identifierInput = document.getElementById('authInputIdentifier').value.trim();
-    if (identifierInput) {
-        alert(`Welcome to EcoSurfShop! A secure connection link has been successfully sent to: ${identifierInput}`);
-        closeAuthPage();
-        document.getElementById('authInputIdentifier').value = '';
-    }
-}
-
-// 6. التحكم بلوحة السلة الجانبية
-function openCartPanel() { document.getElementById('cartSidebarPanel').style.display = 'flex'; }
-function closeCartPanel() { document.getElementById('cartSidebarPanel').style.display = 'none'; }
-
-window.onclick = function(event) {
-    if (event.target.classList.contains('modal-overlay')) {
-        event.target.style.display = "none";
-    }
-}
-
-// 7. نظام سجل السلة وحفظ البيانات
-function addToBagRegistry(name, price, img) {
-    globalCartRegistry.push({ name, price, img ,total: price});
-    document.getElementById('cartCount').innerText = globalCartRegistry.length;
-    refreshCartRegistryUI();
-    alert(`${name} has been saved to your surf bag registry!`);
-}
-
-function refreshCartRegistryUI() {
-    const container = document.getElementById('cartRegistryContainer');
-    if (globalCartRegistry.length === 0) {
-        container.innerHTML = `<p class="empty-cart-text">Your bag is currently empty.</p>`;
-        return;
-    }
-    
-    let combinedHTML = '';
-    globalCartRegistry.forEach((product, position) => {
-        combinedHTML += `
-            <div class="registry-item">
-                <img src="${product.img}" alt="${product.name}">
-                <div class="registry-details">
-                    <h4>${product.name}</h4>
-                    <p>${product.price}</p>S
+    categories.forEach(cat => {
+        const grid = document.getElementById(`grid-${cat}`);
+        if(grid) {
+            const filtered = productsData.filter(p => p.category === cat);
+            grid.innerHTML = filtered.map(product => `
+                <div class="product-card-3d" id="card-${product.id}" onclick="flipCard('${product.id}')">
+                    <div class="card-3d-inner">
+                        <div class="card-front">
+                            <img src="${product.imgFront}" alt="${product.name}">
+                            <div class="product-info">
+                                <h3>${product.name}</h3>
+                                <div class="price">${product.price} DH</div>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('${product.id}')">إضافة للسلة</button>
+                        </div>
+                        <div class="card-back">
+                            <img src="${product.imgBack}" alt="${product.name}">
+                            <div class="product-info">
+                                <h3>${product.name} - تفاصيل</h3>
+                                <div class="price">${product.price} DH</div>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('${product.id}')">إضافة للسلة</button>
+                        </div>
+                    </div>
                 </div>
-                <span class="remove-item-btn" onclick="removeItemFromRegistry(${position})">𝐑𝐞𝐦𝐨𝐯𝐞</span>
+            `).join('');
+        }
+    });
+}
+
+// دالة التحكم في تأثير القلب ثلاثي الأبعاد للأقسام والمنتجات
+function flipCard(id) {
+    const card = document.getElementById(`card-${id}`);
+    card.classList.toggle('flipped');
+}
+
+// إدارة النوافذ المنبثقة (الحساب والسلة)
+function toggleModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = (modal.style.display === "block") ? "none" : "block";
+}
+
+// دالة محرك البحث الشامل والذكي لكل الموقع
+function searchProducts() {
+    let query = document.getElementById("search-input").value.toLowerCase();
+    let allCards = document.querySelectorAll(".product-card-3d");
+    
+    productsData.forEach((product, index) => {
+        let card = allCards[index];
+        if(card) {
+            if (product.name.toLowerCase().includes(query) || product.category.toLowerCase().includes(query)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        }
+    });
+}
+
+// التحكم بالسلة: الإضافة، الزيادة، النقصان
+function addToCart(id) {
+    const product = productsData.find(p => p.id === id);
+    const exist = cart.find(item => item.id === id);
+    
+    if (exist) {
+        exist.qty++;
+    } else {
+        cart.push({ ...product, qty: 1 });
+    }
+    updateCartUI();
+}
+
+function changeQty(id, delta) {
+    const item = cart.find(p => p.id === id);
+    if (item) {
+        item.qty += delta;
+        if (item.qty <= 0) {
+            cart = cart.filter(p => p.id !== id);
+        }
+        updateCartUI();
+    }
+}
+
+function updateCartUI() {
+    const container = document.getElementById("cart-items-container");
+    const countSpan = document.getElementById("cart-count");
+    const totalSpan = document.getElementById("cart-total-price");
+    
+    let totalCount = 0;
+    let totalPrice = 0;
+    
+    container.innerHTML = cart.map(item => {
+        totalCount += item.qty;
+        totalPrice += item.price * item.qty;
+        return `
+            <div class="cart-item">
+                <img src="${item.imgFront}" style="width:40px; height:40px; object-fit:contain;">
+                <div>
+                    <h4>${item.name}</h4>
+                    <span style="color:#d4af37">${item.price} DH</span>
+                </div>
+                <div class="quantity-control">
+                    <button onclick="changeQty('${item.id}', -1)">-</button>
+                    <span>${item.qty}</span>
+                    <button onclick="changeQty('${item.id}', 1)">+</button>
+                </div>
             </div>
         `;
-    });
-    container.innerHTML = combinedHTML;
+    }).join('');
+    
+    countSpan.innerText = totalCount;
+    totalSpan.innerText = totalPrice;
 }
 
-function removeItemFromRegistry(position) {
-    globalCartRegistry.splice(position, 1);
-    document.getElementById('cartCount').innerText = globalCartRegistry.length;
-    refreshCartRegistryUI();
-    function goToWhatsapp() {
-    // 1. التأكد واش السلة خاوية
-    if (typeof globalCartRegistry === 'undefined' || globalCartRegistry.length === 0) {
-        alert("Sua sacola está vazia! / سلتك فارغة");
+// معالجة وإرسال البيانات إلى واتساب المشروع مع هيكلة تفصيلية ومجموع مالي دقيق
+function proceedToWhatsApp() {
+    if(cart.length === 0) {
+        alert("سلتك فارغة، يرجى اختيار الشوكولاتة أولاً!");
         return;
     }
-
-    // 2. بداية الميساج
-    let message = "Olá Ecosurfshop, gostaria de finalizar o seguinte pedido:\n\n";
+    
+    let phoneNumber = "212600000000"; // رقم واتساب الخاص بالمشروع
+    let message = "مرحباً Rêve Chocolatier، أريد تقديم طلبية جديدة عبر الموقع الإلكتروني:\n\n";
     let total = 0;
-
-    // 3. الدوران على السلعة اللي فـ globalCartRegistry
-    globalCartRegistry.forEach((product, index) => {
-        message += `${index + 1}. 🏄‍♂️ ${product.name} -  ${product.price}\n`;
-        
-        // كود ذكي: كيجبد غير الأرقام من الثمن وخا تكون معاه "DH" ويجمعهم
-        let priceNumber = parseInt(product.price.replace(/[^0-9]/g, '')) || 0;
-        total += priceNumber;
+    
+    cart.forEach(item => {
+        let subtotal = item.price * item.qty;
+        total += subtotal;
+        message += `• *${item.name}* (الكمية: ${item.qty}) -> ${subtotal} درهم\n`;
     });
-
-    // 4. زيادة المجموع الكلي
-    message += `\n*Total: ${total} DH*`;
-
-    // 5. رقم الواتساب ديالك (بدلو برقمك الحقيقي يبدا بـ 212 وما ديرش + أو أصفار فالبداية)
-    const whatsappNumber = "212600000000"; 
-
-    // 6. تشفير النص وفتح الواتساب
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/${212773620718}?text=${encodedMessage}`, '_blank');
+    
+    message += `\n*المجموع الإجمالي للطلب:* ${total} درهم كاش عند الاستلام.`;
+    
+    let url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
 }
-} 
+
+// دالة فتح خريطة الموقع عند الضغط على زر الموقع العلوي أو السفلي
+function openLocation() {
+    window.open("https://maps.google.com/?q=Casablanca", "_blank");
+}

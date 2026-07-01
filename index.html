@@ -1,189 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>𝐄𝐜𝐨𝐒𝐮𝐫𝐟𝐒𝐡𝐨𝐩 | 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 𝐄𝐱𝐩𝐞𝐫𝐢𝐞𝐧𝐜𝐞</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;600;700&family=Syncopate:wght=700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Rêve Chocolatier | المتجر الرسمي</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <div class="video-background-master">
-        <video autoplay muted loop playsinline id="main-bg-video">
-            <source src="surf.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay-darkness"></div>
-    </div>
+    <!-- فيديو الخلفية الموحد -->
+    <video autoplay muted loop id="bg-video">
+        <source src="video.mp4" type="video/mp4">
+    </video>
 
-    <header class="main-header">
+    <!-- شريط التنقل العلوي (Navbar) -->
+    <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <img src="logo.png" alt="EcoSurfShop">
-                <span class="brand-text">𝐄𝐂𝐎𝐒𝐔𝐑𝐅<span class="accent-color">𝐒𝐇𝐎𝐏</span></span>
+            <div class="logo-section">
+                <img src="logo.png" alt="Rêve Logo" class="main-logo">
             </div>
-            
-            <nav class="nav-links">
-                <a href="#bodysurf">𝐁𝐎𝐃𝐘𝐒𝐔𝐑𝐅</a>
-                <a href="#boards">𝐁𝐎𝐀𝐑𝐃𝐒</a>
-                <a href="#suits">𝐒𝐔𝐈𝐓𝐒</a>
-                <a href="#accessories">𝐀𝐂𝐂𝐄𝐒𝐒𝐎𝐑𝐈𝐄𝐒</a>
-                <a href="#contact">𝐂𝐎𝐍𝐓𝐀𝐂𝐓</a>
-            </nav>
-
-            <div class="nav-tools">
+            <div class="nav-links">
+                <a href="#services">خدماتنا</a>
+                <a href="#chocolate-noir">Chocolat Noir</a>
+                <a href="#chocolate-lait">Chocolat au Lait</a>
+                <div class="dropdown">
+                    <a href="#collection-ombrelle" class="dropbtn">COLLECTION OMBRELLE <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#collen-zlipse">Collection Zlipse</a>
+                        <a href="#collection-fuzion">Collection Fuzion</a>
+                        <a href="#collection-lumea">Collection Lumea</a>
+                        <a href="#collection-cera">Collection Céra</a>
+                        <a href="#collection-drea">Collection Dréa</a>
+                        <a href="#collection-dorina">Collection Dorina</a>
+                        <a href="#nos-coffrets">Nos Coffrets</a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-icons">
                 <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Search product..." onkeyup="searchProduct()">
+                    <input type="text" id="search-input" placeholder="ابحث عن شوكولاتة..." onkeyup="searchProducts()">
                     <i class="fas fa-search"></i>
                 </div>
-                <button class="tool-icon" onclick="openAuthPage()"><i class="far fa-user"></i></button>
-                <button class="tool-icon" onclick="openCartPanel()"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartCount">𝟎</span></button>
+                <i class="fas fa-map-marker-alt icon-btn" onclick="openLocation()"></i>
+                <i class="fas fa-user icon-btn" onclick="toggleModal('auth-modal')"></i>
+                <div class="cart-icon-wrapper" onclick="toggleModal('cart-modal')">
+                    <i class="fas fa-shopping-bag icon-btn"></i>
+                    <span id="cart-count">0</span>
+                </div>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="reveal">𝑹𝑰𝑫𝑬 𝑻𝑯𝑬 𝑶𝑪𝑬𝑨𝑵</h1>
-            <p class="reveal">𝐄𝐜𝐨𝐬𝐮𝐫𝐟𝐬𝐡𝐨𝐩 𝐅𝐫𝐢𝐞𝐧𝐝𝐥𝐲 𝐬𝐮𝐫𝐟 𝐠𝐞𝐚𝐫</p>
+    <!-- قسم الخدمات (Service) -->
+    <section id="services" class="section-container text-center">
+        <h2 class="section-title">Our Services</h2>
+        <p class="service-text">نقدم لكم أجود أنواع الشوكولاتة الفاخرة المصنوعة يدوياً وبأعلى معايير الجودة البلجيكية لتناسب جميع مناسباتكم الراقية وهداياكم الاستثنائية.</p>
+    </section>
+
+    <!-- الأقسام الرئيسية للمنتجات -->
+    <!-- ملاحظة: يتم توليد الكروت ديناميكياً لتفادي تكرار الكود أو يمكنك تكرار هيكل الـ 3D Card -->
+    <section id="chocolate-noir" class="section-container">
+        <h2 class="section-title">Chocolat Noir (16)</h2>
+        <div class="products-grid" id="grid-noir"></div>
+    </section>
+
+    <section id="chocolate-lait" class="section-container">
+        <h2 class="section-title">Chocolat au Lait (16)</h2>
+        <div class="products-grid" id="grid-lait"></div>
+    </section>
+
+    <section id="chocolate-dulcey" class="section-container">
+        <h2 class="section-title">Chocolat Dulcey (5)</h2>
+        <div class="products-grid" id="grid-dulcey"></div>
+    </section>
+
+    <section id="chocolate-sucre" class="section-container">
+        <h2 class="section-title">Chocolat Sucre (6)</h2>
+        <div class="products-grid" id="grid-sucre"></div>
+    </section>
+
+    <section id="gamme-confiserie" class="section-container">
+        <h2 class="section-title">Gamme Confiserie (8)</h2>
+        <div class="products-grid" id="grid-confiserie"></div>
+    </section>
+
+    <!-- القسم الكبير المجمع الكوليكشن الرئيسي -->
+    <section id="collection-ombrelle" class="section-container collection-main">
+        <h2 class="section-title">Collection Ombrelle (6)</h2>
+        <p class="collection-desc">نوع فاخر من التشكيلات المتكاملة للمناسبات الكبرى</p>
+        <div class="products-grid" id="grid-ombrelle"></div>
+
+        <!-- الأقسام الداخلية المندمجة -->
+        <div class="sub-collections-wrapper">
+            <div id="collen-zlipse" class="sub-section">
+                <h3 class="sub-title">Collection Zlipse</h3>
+                <div class="products-grid" id="grid-zlipse"></div>
+            </div>
+            <div id="collection-fuzion" class="sub-section">
+                <h3 class="sub-title">Collection Fuzion</h3>
+                <div class="products-grid" id="grid-fuzion"></div>
+            </div>
+            <div id="collection-lumea" class="sub-section">
+                <h3 class="sub-title">Collection Lumea</h3>
+                <div class="products-grid" id="grid-lumea"></div>
+            </div>
+            <div id="collection-cera" class="sub-section">
+                <h3 class="sub-title">Collection Céra</h3>
+                <div class="products-grid" id="grid-cera"></div>
+            </div>
+            <div id="collection-drea" class="sub-section">
+                <h3 class="sub-title">Collection Dréa</h3>
+                <div class="products-grid" id="grid-drea"></div>
+            </div>
+            <div id="collection-dorina" class="sub-section">
+                <h3 class="sub-title">Collection Dorina</h3>
+                <div class="products-grid" id="grid-dorina"></div>
+            </div>
+            <div id="nos-coffrets" class="sub-section">
+                <h3 class="sub-title">Nos Coffrets (10)</h3>
+                <div class="products-grid" id="grid-coffrets"></div>
+            </div>
         </div>
     </section>
 
-    <div id="authPageModal" class="full-page-auth">
-        <div class="auth-container-card">
-            <span class="close-auth-btn" onclick="closeAuthPage()">&times;</span>
-            <div class="auth-logo-header">
-                <img src="logo.png" alt="EcoSurfShop">
-                <h3>𝐄𝐂𝐎𝐒𝐔𝐑𝐅<span>𝐒𝐇𝐎𝐏</span></h3>
+    <!-- نافذة الحساب الشفافة (Auth Modal) -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content glass-effect">
+            <span class="close-btn" onclick="toggleModal('auth-modal')">&times;</span>
+            <img src="logo.png" alt="Logo" class="modal-logo">
+            <h2>إنشاء حساب / تسجيل الدخول</h2>
+            <button class="google-btn"><i class="fab fa-google"></i> التسجيل عبر Google</button>
+            <div class="divider"><span>أو</span></div>
+            <input type="text" placeholder="الاسم الشخصي والبريد">
+            <input type="tel" placeholder="رقم الهاتف">
+            <button class="submit-btn">إنشاء حساب</button>
+        </div>
+    </div>
+
+    <!-- نافذة سلة المشتريات الشفافة (Cart Modal) -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content glass-effect scrollable-cart">
+            <span class="close-btn" onclick="toggleModal('cart-modal')">&times;</span>
+            <img src="logo.png" alt="Logo" class="modal-logo">
+            <h2>سلة المشتريات</h2>
+            <div id="cart-items-container">
+                <!-- المنتجات المضافة تظهر هنا ديناميكياً -->
             </div>
-            <div id="authStepContainer">
-                <h2>𝐒𝐢𝐠𝐧 𝐢𝐧 𝐨𝐫 𝐂𝐫𝐞𝐚𝐭𝐞 𝐚𝐧 𝐚𝐜𝐜𝐨𝐮𝐧𝐭</h2>
-                <p class="auth-instructions">𝐄𝐧𝐭𝐞𝐫 𝐲𝐨𝐮𝐫 𝐞𝐦𝐚𝐢𝐥 𝐨𝐫 𝐩𝐡𝐨𝐧𝐞 𝐧𝐮𝐦𝐛𝐞𝐫 𝐭𝐨 𝐜𝐨𝐧𝐧𝐞𝐜𝐭 𝐭𝐨 𝐲𝐨𝐮𝐫 𝐩𝐫𝐞𝐦𝐢𝐮𝐦 𝐬𝐮𝐫𝐟 𝐰𝐨𝐫𝐤𝐬𝐩𝐚𝐜𝐞.</p>
-                <form onsubmit="processDecathlonAuth(event)">
-                    <input type="text" id="authInputIdentifier" placeholder="Email or Mobile phone number" required>
-                    <button type="submit" class="auth-primary-btn">𝐂𝐎𝐍𝐓𝐈𝐍𝐔𝐄</button>
-                </form>
-            </div>
-            <div class="auth-footer-notes">
-                𝐁𝐲 𝐩𝐫𝐨𝐜𝐞𝐞𝐝𝐢𝐧𝐠, 𝐲𝐨𝐮 𝐜𝐨𝐧𝐬𝐞𝐧𝐭 𝐭𝐨 𝐨𝐮𝐫 𝐭𝐞𝐫𝐦𝐬 𝐨𝐟 𝐬𝐞𝐫𝐯𝐢𝐜𝐞 𝐚𝐧𝐝 𝐬𝐮𝐬𝐭𝐚𝐢𝐧𝐚𝐛𝐥𝐞 𝐨𝐜𝐞𝐚𝐧 𝐝𝐚𝐭𝐚 𝐠𝐮𝐢𝐝elines.
+            <div class="cart-summary">
+                <h3>المجموع الإجمالي: <span id="cart-total-price">0</span> درهم</h3>
+                <button class="checkout-btn" onclick="proceedToWhatsApp()">تأكيد الطلب عبر WhatsApp <i class="fab fa-whatsapp"></i></button>
             </div>
         </div>
     </div>
 
-    <div id="cartSidebarPanel" class="modal-overlay">
-        <div class="cart-sidebar-card">
-            <span class="close-btn" onclick="closeCartPanel()">&times;</span>
-            <h2>𝐘𝐨𝐮𝐫 𝐁𝐚𝐠</h2>
-            <div class="cart-registry-scroll" id="cartRegistryContainer">
-                <p class="empty-cart-text">𝐘𝐨𝐮𝐫 𝐛𝐚𝐠 𝐢𝐬 𝐜𝐮𝐫𝐫𝐞𝐧𝐭𝐥𝐲 𝐞𝐦𝐩𝐭𝐲.</p>
+    <!-- شريط التمرير اللانهائي السفلي ثلاثي الأبعاد (3D Marquee Footer) -->
+    <footer class="infinite-bar-3d">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span onclick="openLocation()"><i class="fas fa-map-marker-alt"></i> موقعنا الرسمي</span>
+                <span onclick="window.open('tel:+212600000000')"><i class="fas fa-phone-alt"></i> اتصل بنا: +212 600-000000</span>
+                <span onclick="window.open('https://wa.me/212600000000')"><i class="fab fa-whatsapp"></i> واتساب: +212 600-000000</span>
+                <span onclick="window.open('mailto:info@revechocolatier.com')"><i class="fas fa-envelope"></i> البريد: info@reve.com</span>
+                <span onclick="window.open('https://www.instagram.com/reve.chocolatier')"><i class="fab fa-instagram"></i> انستغرام: @reve.chocolatier</span>
             </div>
-            <div class="cart-footer-actions">
-                <button class="auth-primary-btn">𝐏𝐑𝐎𝐂𝐄𝐄𝐃 𝐓𝐎 𝐂𝐇𝐄𝐂𝐊𝐎𝐔𝐓</button>
+            <!-- تكرار المحرك لضمان انسيابية الحركة اللانهائية -->
+            <div class="marquee-content">
+                <span onclick="openLocation()"><i class="fas fa-map-marker-alt"></i> موقعنا الرسمي</span>
+                <span onclick="window.open('tel:+212600000000')"><i class="fas fa-phone-alt"></i> اتصل بنا: +212 600-000000</span>
+                <span onclick="window.open('https://wa.me/212600000000')"><i class="fab fa-whatsapp"></i> واتساب: +212 600-000000</span>
+                <span onclick="window.open('mailto:info@revechocolatier.com')"><i class="fas fa-envelope"></i> البريد: info@reve.com</span>
+                <span onclick="window.open('https://www.instagram.com/reve.chocolatier')"><i class="fab fa-instagram"></i> انستغرام: @reve.chocolatier</span>
             </div>
         </div>
-    </div>
-
-    <main class="main-content-wrapper">
-        
-        <section id="bodysurf" class="reveal section-padding">
-            <h2 class="section-title">𝐁𝐎𝐃𝐘𝐒𝐔𝐑𝐅𝐈𝐍𝐆</h2>
-            <div class="slider-wrapper">
-                <button class="slide-arrow prev-arrow" onclick="slideSection('bodysurf-track', 'left')"><i class="fas fa-chevron-left"></i></button>
-                <div class="slider-track" id="bodysurf-track">
-                    <div class="product-card" data-name="Handplane Pro Elite">
-                        <div class="img-container"><img src="hand r.png" class="img-main"><img src="hand r.png" class="img-hover"></div>
-                        <div class="p-info"><h3>H𝐚𝐧𝐝𝐩𝐥𝐚𝐧𝐞 𝐏𝐫𝐨 𝐄𝐥𝐢𝐭𝐞</h3><p>𝟒𝟓𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐇𝐚𝐧𝐝𝐩𝐥𝐚𝐧𝐞 𝐏𝐫𝐨 𝐄𝐥𝐢𝐭𝐞', '𝟒𝟓𝟎 𝑫𝑯', 'hand r.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
-                    </div>
-                    <div class="product-card" data-name="Handplane Neo">
-                        <div class="img-container"><img src="handsurf.png" class="img-main"></div>
-                        <div class="p-info"><h3>𝐇𝐚𝐧𝐝𝐩𝐥𝐚𝐧𝐞 𝐍𝐞𝐨 𝐒𝐥𝐞𝐞𝐤</h3><p>𝟒𝟎𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐇𝐚𝐧𝐝𝐩𝐥𝐚𝐧𝐞 𝐍𝐞𝐨 𝐒𝐥𝐞𝐞𝐤', '𝟒𝟎𝟎 𝑫𝑯', 'handsurf.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
-                    </div>
-                    <div class="product-card" data-name="Handplane Carbon">
-                        <div class="img-container"><img src="handsurf2.png" class="img-main"></div>
-                        <div class="p-info"><h3>𝐇𝐚𝐧𝐝𝐩𝐥𝐚𝐧𝐞 𝐂𝐚𝐫𝐛𝐨𝐧 𝐓𝐞𝐜𝐡</h3><p>𝟔𝟎𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐇𝐚𝐧𝐝𝐩𝐥𝐚𝐧𝐞 𝐂𝐚𝐫𝐛𝐨𝐧 𝐓𝐞𝐜𝐡', '𝟔𝟎𝟎 𝑫𝑯', 'handsurf2.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
-                    </div>
-                </div>
-                <button class="slide-arrow next-arrow" onclick="slideSection('bodysurf-track', 'right')"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </section>
-
-        <section id="boards" class="reveal section-padding">
-            <h2 class="section-title">𝐒𝐔𝐑𝐅 𝐁𝐎𝐀𝐑𝐃𝐒</h2>
-            <div class="slider-wrapper">
-                <button class="slide-arrow prev-arrow" onclick="slideSection('boards-track', 'left')"><i class="fas fa-chevron-left"></i></button>
-                <div class="slider-track" id="boards-track">
-                    <div class="product-card" data-name="Eco Cruiser Board 7'2">
-                        <div class="img-container"><img src="board1.png" class="img-main"><img src="board1.png" class="img-hover"></div>
-                        <div class="p-info"><h3>𝐄𝐜𝐨 𝐂𝐫𝐮𝐢𝐬𝐞𝐫 𝐁𝐨𝐚𝐫𝐝 7\'2</h3><p>𝟑,𝟓𝟎𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐄𝐜𝐨 𝐂𝐫𝐮𝐢𝐬𝐞𝐫 𝐁𝐨𝐚𝐫𝐝 𝟕\'𝟐', '𝟑,𝟓𝟎𝟎 𝑫𝑯', 'board1.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
-                    </div>
-                    <div class="product-card" data-name="Storm Chaser 6'0">
-                        <div class="img-container"><img src="short.png" class="img-main"></div>
-                        <div class="p-info"><h3>𝐒𝐭𝐨𝐫𝐦 𝐂𝐡𝐚𝐬𝐞𝐫 6\'0</h3><p>𝟑,𝟐𝟎𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐒𝐭𝐨𝐫𝐦 𝐂𝐡𝐚𝐬𝐞𝐫 𝟔\'𝟎', '𝟑,𝟐𝟎𝟎 𝑫𝑯', 'short.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
-                    </div>
-                    <div class="product-card" data-name="Classic Longboard 9'0">
-                        <div class="img-container"><img src="lang.png" class="img-main"></div>
-                        <div class="p-info"><h3>𝐂𝐥𝐚𝐬𝐬𝐢𝐜 𝐋𝐨𝐧𝐠𝐛𝐨𝐚𝐫𝐝 9\'0</h3><p>𝟒,𝟏𝟎𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐂𝐥𝐚𝐬𝐬𝐢𝐜 𝐋𝐨𝐧𝐠𝐛𝐨𝐚𝐫𝐝 9\'0', '𝟒,𝟏𝟎𝟎 𝑫𝑯', 'lang.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
-                    </div>
-                </div>
-                <button class="slide-arrow next-arrow" onclick="slideSection('boards-track', 'right')"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </section>
-
-        <section id="suits" class="reveal section-padding">
-            <h2 class="section-title">𝐏𝐑𝐄𝐌𝐈𝐔𝐌 𝐒𝐔𝐈𝐓𝐒</h2>
-            <div class="slider-wrapper">
-                <button class="slide-arrow prev-arrow" onclick="slideSection('suits-track', 'left')"><i class="fas fa-chevron-left"></i></button>
-                <div class="slider-track" id="suits-track">
-                    <div class="product-card" data-name="Eco Wetsuit Full 3/2">
-                        <div class="img-container"><img src="suit.png" class="img-main"><img src="suit.png" class="img-hover"></div>
-                        <div class="p-info"><h3>𝐄𝐜𝐨 𝐖𝐞𝐭𝐬𝐮𝐢𝐭 𝐅𝐮𝐥𝐥 3/2</h3><p>𝟏,𝟐𝟎𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐄𝐜𝐨 𝐖𝐞𝐭𝐬𝐮𝐢𝐭 𝐅𝐮𝐥𝐥 3/2', '𝟏,𝟐𝟎𝟎 𝑫𝑯', 'suit.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
-                    </div>
-                    <div class="product-card" data-name="Thermal Suit 4/3">
-                        <div class="img-container"><img src="suit2.png" class="img-main"></div>
-                        <div class="p-info"><h3>𝐓𝐡𝐞𝐫𝐦𝐚𝐥 𝐒𝐮𝐢𝐭 4/3</h3><p>𝟏,𝟒𝟓𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐓𝐡𝐞𝐫𝐦𝐚𝐥 𝐒𝐮𝐢𝐭 4/3', '𝟏,𝟒𝟓𝟎 𝑫𝑯', 'suit2.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
-                    </div>
-                    <div class="product-card" data-name="Summer Shorty 2/2">
-                        <div class="img-container"><img src="suit4.png" class="img-main"></div>
-                        <div class="p-info"><h3>𝐒𝐮𝐦𝐦𝐞𝐫 𝐒𝐡𝐨𝐫𝐭𝐲 2/2</h3><p>𝟗𝟎𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐒𝐮𝐦𝐦𝐞𝐫 𝐒𝐡𝐨𝐫𝐭𝐲 2/2', '𝟗𝟎𝟎 𝑫𝑯', 'suit4.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
-                    </div>
-                </div>
-                <button class="slide-arrow next-arrow" onclick="slideSection('suits-track', 'right')"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </section>
-
-        <section id="accessories" class="reveal section-padding">
-            <h2 class="section-title">𝐀𝐂𝐂𝐄𝐒𝐒𝐎𝐑𝐈𝐄𝐒</h2>
-            <div class="slider-wrapper">
-                <button class="slide-arrow prev-arrow" onclick="slideSection('acc-track', 'left')"><i class="fas fa-chevron-left"></i></button>
-                <div class="slider-track" id="acc-track">S
-                    <div class="product-card" data-name="Pro Surf Leash 6ft">
-                        <div class="img-container"><img src="lish.png" class="img-main"><img src="lish.png" class="img-hover"></div>
-                        <div class="p-info"><h3>𝐏𝐫𝐨 𝐒𝐮𝐫𝐟 𝐋𝐞𝐚𝐬𝐡 𝟔𝐟𝐭</h3><p>𝟐𝟓𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐏𝐫𝐨 𝐒𝐮𝐫𝐟 𝐋𝐞𝐚𝐬𝐡 𝟔𝐟𝐭', '𝟐𝟓𝟎 𝑫𝑯', 'lish.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
-                    </div>
-                    <div class="product-card" data-name="Eco Surf Wax">
-                        <div class="img-container"><img src="xcah.png" class="img-main"></div>
-                        <div class="p-info"><h3>𝟖𝟔" 𝐂𝐥𝐚𝐬𝐬𝐢𝐜 𝐅𝐮𝐧 𝐁𝐨𝐚𝐫𝐝 𝐓𝐫𝐚𝐧𝐪𝐮𝐢𝐥 𝐁𝐥𝐮𝐞</h3><p>𝟏𝟓𝟎𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝟖𝟔 𝐂𝐥𝐚𝐬𝐬𝐢𝐜 𝐅𝐮𝐧 𝐁𝐨𝐚𝐫𝐝 𝐓𝐫𝐚𝐧𝐪𝐮𝐢𝐥 𝐁𝐥𝐮𝐞', '𝟏𝟓𝟎𝑫𝑯', 'xcah.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
-                    </div>
-                    <div class="product-card" data-name="Eco Surf Wax">
-                        <div class="img-container"><img src="wax.png" class="img-main"></div>
-                        <div class="p-info"><h3>𝐂𝐫𝐞𝐚𝐦 𝐒𝐮𝐫𝐟 𝐖𝐚𝐱 - 𝐒𝐚𝐧𝐝𝐞𝐝 𝐀𝐮𝐬𝐭𝐫𝐚𝐥𝐢𝐚</h3><p>𝟔𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐂𝐫𝐞𝐚𝐦 𝐒𝐮𝐫𝐟 𝐖𝐚𝐱 - 𝐒𝐚𝐧𝐝𝐞𝐝 𝐀𝐮𝐬𝐭𝐫𝐚𝐥𝐢𝐚', '𝟔𝟎 𝑫𝑯', 'wax.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
-                    </div>
-                </div>
-                <button class="slide-arrow next-arrow" onclick="slideSection('acc-track', 'right')"><i class="fas fa-chevron-right"></i></button>
-            </div>
-            
-        </section>
-
-        <section id="contact" class="reveal contact-box">
-            <h2 class="section-title">𝐂𝐎𝐍𝐓𝐀𝐂𝐓</h2>
-            <div class="contact-links">
-                <a href="https://wa.me/yournumber" target="_blank"><i class="fab fa-whatsapp"></i>𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩</a>
-                <a href="https://instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i> 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦</a>
-                <a href="mailto:ecosurfshop1@gmail.com" target="_blank"><i class="fas fa-envelope"></i> 𝐄𝐦𝐚𝐢𝐥</a>
-            </div>
-        </section>
-    </main>
+    </footer>
 
     <script src="script.js"></script>
 </body>
