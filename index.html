@@ -1,354 +1,651 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>𝑾 𝑹𝑶𝑶𝑭𝑻𝑶𝑷</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Rêve Chocolatier | Official Store</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
+    <video autoplay muted loop id="bg-video">
+        <source src="video3.mp4" type="video/mp4">
+    </video>
 
-    <header class="navbar-futuristic">
-        <!-- الجهة اليسرى: الأقسام -->
-        <nav class="nav-left-links">
-            <a href="#menu-section" data-translate="nav_menu">𝑴𝑬𝑵𝑼 𝑾 𝑹𝑶𝑶𝑭𝑻𝑶𝑷</a>
-            <a href="#brunch-section" data-translate="nav_brunch">𝑩𝑹𝑼𝑵𝑪𝑯 𝑾 𝑹𝑶𝑶𝑭𝑻𝑶𝑷</a>
-            <a href="#antepasto-section" data-translate="nav_antepasto">𝑴𝑬𝑵𝑼 𝑨𝑵𝑻𝑬𝑷𝑨𝑺𝑻𝑶</a>
-           
-        </nav>
-
-       
-        <div class="nav-center-brand">
-             <img src="logo2.png" alt="Logo W" class="brand-logo">
-            <span class="brand-name">𝑹𝑶𝑶𝑭𝑻𝑶𝑷</span>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo-area">
+                <img src="logo.png" alt="Rêve" class="main-logo">
+            </div>
             
-        </div>
-
-        <!-- الجهة اليمنى: الأدوات التفاعلية شغالين -->
-        <div class="nav-right-tools">
-            <div class="search-wrapper">
-                <input type="text" id="search-input" placeholder="𝑩𝒖𝒔𝒄𝒂𝒓 𝒑𝒓𝒂𝒕𝒐..." onkeyup="searchDishes()">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-            <a href="https://maps.app.goo.gl/4ZfMhJRwKjLAyPn67" target="_blank" class="tool-btn" title="Localização Exata">
-                <i class="fa-solid fa-location-dot"></i>
-            </a>
-
-            <div class="lang-wrapper">
-                <button class="lang-trigger"><i class="fa-solid fa-globe"></i> <span id="current-lang">𝑷𝑻</span></button>
-                <div class="lang-menu">
-                    <button onclick="changeLanguage('pt')">Português (PT)</button>
-                    <button onclick="changeLanguage('en')">English (EN)</button>
-                    <button onclick="changeLanguage('fr')">Français (FR)</button>
-                    <button onclick="changeLanguage('ar')">Arabic (AR)</button> 
+            <nav class="main-nav">
+                <a href="#noir" data-tr="nav-noir">𝐂𝐡𝐨𝐜𝐨𝐥𝐚𝐭 𝐍𝐨𝐢𝐫</a>
+                <a href="#lait" data-tr="nav-lait">𝐂𝐡𝐨𝐜𝐨𝐥𝐚𝐭 𝐚𝐮 𝐋𝐚𝐢𝐭</a>
+                <a href="#dulcey" data-tr="nav-dulcey">𝐂𝐡𝐨𝐜𝐨𝐥𝐚𝐭 𝐃𝐮𝐥𝐜𝐞𝐲</a>
+                <a href="#sucre" data-tr="nav-sucre">𝐒𝐚𝐧𝐬 𝐒𝐮𝐜𝐫𝐞</a>
+                <a href="#confiserie" data-tr="nav-confiserie">𝐂𝐨𝐧𝐟𝐢𝐬𝐞𝐫𝐢𝐞</a>
+                <div class="dropdown">
+                    <a href="#collections" class="dropbtn" data-tr="nav-collections">𝐂𝐨𝐥𝐥𝐞𝐜𝐭𝐢𝐨𝐧𝐬 <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#ombrelle">𝐂𝐨𝐥𝐥𝐞𝐜𝐭𝐢𝐨𝐧 𝐎𝐦𝐛𝐫𝐞𝐥𝐥𝐞</a>
+                        <a href="#zlipse">𝐂𝐨𝐥𝐥𝐞𝐜𝐭𝐢𝐨𝐧 𝐙𝐥𝐢𝐩𝐬𝐞</a>
+                        <a href="#fuzion">𝐂𝐨𝐥𝐥𝐞𝐜𝐭𝐢𝐨𝐧 𝐅𝐮𝐳𝐢𝐨𝐧</a>
+                        <a href="#lumea">𝐂𝐨𝐥𝐥𝐞𝐜𝐭𝐢𝐨𝐧 𝐋𝐮𝐦𝐞𝐚</a>
+                        <a href="#cera">𝐂𝐨𝐥𝐥𝐞𝐜𝐭𝐢𝐨𝐧 𝐂𝐞́𝐫𝐚</a>
+                        <a href="#noctis">𝐂𝐨𝐥𝐥𝐞𝐜𝐭𝐢𝐨𝐧 𝐍𝐨𝐜𝐭𝐢𝐬</a>
+                        <a href="#dorina">𝐂𝐨𝐥𝐥𝐞𝐜𝐭𝐢𝐨𝐧 𝐃𝐨𝐫𝐢𝐧𝐚</a>
+                        <a href="#coffrets">𝐍𝐨𝐬 𝐂𝐨𝐟𝐟𝐫𝐞𝐭𝐬</a>
+                    </div>
                 </div>
-            </div>
+            </nav>
 
-            <!-- اللوغين الشغال (Popup) -->
-            <button class="tool-btn login-trigger-btn" onclick="toggleLoginModal()">
-                <i class="fa-solid fa-user"></i> <span data-translate="login_btn">𝑳𝒐𝒈𝒊𝒏</span>
-            </button>
-
-            <!-- السلة التفاعلية الشغالة -->
-            <div class="cart-wrapper" onclick="toggleCartModal()">
-                <i class="fa-solid fa-bag-shopping"></i>
-                <span class="cart-badge" id="cart-counter">0</span>
+            <div class="nav-tools">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Rechercher..." onkeyup="searchProducts()">
+                    <i class="fas fa-search"></i>
+                </div>
+                <i class="fas fa-map-marker-alt tool-icon" id="map-btn" title="Notre Position"></i>
+                <i class="fas fa-user tool-icon" id="auth-btn"></i>
+                <div class="cart-icon-wrapper" id="cart-btn">
+                    <i class="fas fa-shopping-bag tool-icon"></i>
+                    <span id="cart-count">𝟎</span>
+                </div>
+                <div class="lang-dropdown">
+                    <i class="fas fa-globe tool-icon"></i>
+                    <div class="lang-content">
+                        <span onclick="changeLang('fr')">𝐅𝐑</span>
+                        <span onclick="changeLang('en')">𝐄𝐍</span>
+                        <span onclick="changeLang('ar')">𝐀𝐑</span>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- 🌟 واجهة العرض الـ 3D والأقسام -->
-    <main class="content-container">
+    <main class="main-content">
         
-        <!-- قسم MENU -->
-        <section id="menu-section" class="grid-section">
-            <h2 class="section-title" data-translate="title_menu"></h2>
-            <div class="dishes-3d-grid">
-                <div class="dish-card-3d" data-name="𝒑𝒓𝒂𝒕𝒐 𝒑𝒓𝒆𝒎𝒊𝒖𝒎 𝒊𝒕𝒂𝒍𝒊𝒂𝒏𝒂">
-                    <div class="card-glow"></div>
-                    <div class="img-container"><img src="piz2 chicken.png" alt="Dish 1"></div>
-                    <div class="dish-details">
-                        <h3>𝒑𝒓𝒂𝒕𝒐 𝒑𝒓𝒆𝒎𝒊𝒖𝒎 𝒊𝒕𝒂𝒍𝒊𝒂𝒏𝒂</h3>
-                        <div class="price-row">
-                            <span class="price">𝑹$ 𝟖𝟗,𝟎𝟎</span>
-                            <button class="add-btn" onclick="addToCart('Prato Premium Italiana', 89)"><i class="fa-solid fa-plus"></i></button>
-                        </div>
+      
+
+        <section id="noir" class="product-section">
+            <h2 data-tr="sec-noir">𝑪𝒉𝒐𝒄𝒐𝒍𝒂𝒕 𝑵𝒐𝒊𝒓</h2>
+            <div class="products-grid" id="grid-noir">
+                <div class="product-card-3d" data-name="Noir Brésil" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="1.png"><div class="product-info"><h3>𝐍𝐨𝐢𝐫 𝐁𝐫𝐞́𝐬𝐢𝐥</h3><div class="price">𝟏𝟖𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="4.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Noir Brésil', 180)">Ajouter au Panier</button></div>
                     </div>
                 </div>
-            <div class="dishes-3d-grid">
-                <div class="dish-card-3d" data-name="𝒑𝒓𝒂𝒕𝒐 𝒑𝒓𝒆𝒎𝒊𝒖𝒎 𝒊𝒕𝒂𝒍𝒊𝒂𝒏𝒂">
-                    <div class="card-glow"></div>
-                    <div class="img-container"><img src="piz1.png" alt="Dish 1"></div>
-                    <div class="dish-details">
-                        <h3>𝒑𝒓𝒂𝒕𝒐 𝒑𝒓𝒆𝒎𝒊𝒖𝒎 𝒊𝒕𝒂𝒍𝒊𝒂𝒏𝒂</h3>
-                        <div class="price-row">
-                            <span class="price">𝑹$ 𝟖𝟗,𝟎𝟎</span>
-                            <button class="add-btn" onclick="addToCart('Prato Premium Italiana', 89)"><i class="fa-solid fa-plus"></i></button>
-                        </div>
+                <div class="product-card-3d" data-name="Noir Ghana" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="2.png"><div class="product-info"><h3>𝐍𝐨𝐢𝐫 𝐆𝐡𝐚𝐧𝐚</h3><div class="price">𝟏𝟖𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="3.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Noir Ghana', 180)">Ajouter au Panier</button></div>
                     </div>
                 </div>
-            <div class="dishes-3d-grid">
-                <div class="dish-card-3d" data-name="𝒑𝒓𝒂𝒕𝒐 𝒑𝒓𝒆𝒎𝒊𝒖𝒎 𝒊𝒕𝒂𝒍𝒊𝒂𝒏𝒂">
-                    <div class="card-glow"></div>
-                    <div class="img-container"><img src="pic3.png" alt="Dish 1"></div>
-                    <div class="dish-details">
-                        <h3>𝒑𝒓𝒂𝒕𝒐 𝒑𝒓𝒆𝒎𝒊𝒖𝒎 𝒊𝒕𝒂𝒍𝒊𝒂𝒏𝒂</h3>
-                        <div class="price-row">
-                            <span class="price">𝑹$ 𝟖𝟗,𝟎𝟎</span>
-                            <button class="add-btn" onclick="addToCart('Prato Premium Italiana', 89)"><i class="fa-solid fa-plus"></i></button>
-                        </div>
+                <div class="product-card-3d" data-name="Noir Equateur" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="5.png"><div class="product-info"><h3>𝐍𝐨𝐢𝐫 𝐄𝐪𝐮𝐚𝐭𝐞𝐮𝐫</h3><div class="price">𝟏𝟖𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="8.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Noir Equateur', 180)">Ajouter au Panier</button></div>
                     </div>
                 </div>
+                <div class="product-card-3d" data-name="Noir Madagascar" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="7.png"><div class="product-info"><h3>𝐍𝐨𝐢𝐫 𝐌𝐚𝐝𝐚𝐠𝐚𝐬𝐜𝐚𝐫</h3><div class="price">𝟏𝟖𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="6.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Noir Madagascar', 180)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Noir Intense" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="10.png"><div class="product-info"><h3>𝐍𝐨𝐢𝐫 𝐈𝐧𝐭𝐞𝐧𝐬𝐞</h3><div class="price">𝟏𝟖𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="9.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Noir Intense', 180)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Noir Amandes" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="12.png"><div class="product-info"><h3>𝐍𝐨𝐢𝐫 𝐀𝐦𝐚𝐧𝐝𝐞𝐬</h3><div class="price">𝟏𝟖𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="13.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Noir Amandes', 180)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Noir Noisettes" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="15.png"><div class="product-info"><h3>𝐍𝐨𝐢𝐫 𝐍𝐨𝐢𝐬𝐞𝐭𝐭𝐞𝐬</h3><div class="price">𝟏𝟖𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="14.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Noir Noisettes', 180)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Noir Orange" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="16.png"><div class="product-info"><h3>𝐍𝐨𝐢𝐫 𝐎𝐫𝐚𝐧𝐠𝐞</h3><div class="price">𝟏𝟖𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="17.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Noir Orange', 180)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Noir Menthe" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="18.png"><div class="product-info"><h3>𝐍𝐨𝐢𝐫 𝐌𝐞𝐧𝐭𝐡𝐞</h3><div class="price">𝟏𝟖𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="19.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Noir Menthe', 180)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Noir Fleur de Sel" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="22.png"><div class="product-info"><h3>𝐍𝐨𝐢𝐫 𝐅𝐥𝐞𝐮𝐫 𝐝𝐞 𝐒𝐞𝐥</h3><div class="price">𝟏𝟖𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="21.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Noir Fleur de Sel', 180)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Noir 70%" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="23.png"><div class="product-info"><h3>𝐍𝐨𝐢𝐫 70%</h3><div class="price">𝟏𝟖𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="24.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Noir 70%', 180)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Noir 85%" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="25.png"><div class="product-info"><h3>𝐍𝐨𝐢𝐫 85%</h3><div class="price">𝟏𝟖𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="26.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Noir 85%', 180)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Noir 99%" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="27.png"><div class="product-info"><h3>𝐍𝐨𝐢𝐫 99%</h3><div class="price">𝟏𝟖𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="28.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Noir 99%', 180)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Noir Truffe" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="29.png"><div class="product-info"><h3>𝐍𝐨𝐢𝐫 𝐓𝐫𝐮𝐟𝐟𝐞</h3><div class="price">𝟏𝟖𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="30.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Noir Truffe', 180)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Noir Éclats" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="31.png"><div class="product-info"><h3>𝐍𝐨𝐢𝐫 𝐄́𝐜𝐥𝐚𝐭𝐬</h3><div class="price">𝟏𝟖𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="32.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Noir Éclats', 180)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Noir Prestige" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="34.png"><div class="product-info"><h3>𝐍𝐨𝐢𝐫 𝐏𝐫𝐞𝐬𝐭𝐢𝐠𝐞</h3><div class="price">𝟏𝟖𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="33.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Noir Prestige', 180)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lait" class="product-section">
+            <h2 data-tr="sec-lait">𝐂𝐡𝐨𝐜𝐨𝐥𝐚𝐭 𝐚𝐮 𝐋𝐚𝐢𝐭</h2>
+            <div class="products-grid" id="grid-lait">
+                <div class="product-card-3d" data-name="Lait Classique" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="merc.png"><div class="product-info"><h3>𝐋𝐚𝐢𝐭 𝐂𝐥𝐚𝐬𝐬𝐢ǫ𝐮𝐞</h3><div class="price">𝟏𝟕𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="merc2.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Lait Classique', 170)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Lait Noisettes" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src=""><div class="product-info"><h3>𝐋𝐚𝐢𝐭 𝐍𝐨𝐢𝐬𝐞𝐭𝐭𝐞𝐬</h3><div class="price">𝟏𝟕𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/lait2.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Lait Noisettes', 170)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Lait Amandes" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/lait3.png"><div class="product-info"><h3>𝐋𝐚𝐢𝐭 𝐀𝐦𝐚𝐧𝐝𝐞𝐬</h3><div class="price">𝟏𝟕𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/lait3.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Lait Amandes', 170)">Ajouter au Panier</button></div>
+                    </div>
                 
-                
-                <!-- كرر الكروت هنا للوصول لـ 10 أطباق -->
-                <div class="dish-card-3d" data-name="𝒈𝒐𝒖𝒓𝒎𝒆𝒕 𝒄𝒂𝒓𝒑𝒂𝒄𝒄𝒊𝒐">
-                    <div class="card-glow"></div>
-                    <div class="img-container"><img src="menu2.png" alt="Dish 2"></div>
-                    <div class="dish-details">
-                        <h3>𝒈𝒐𝒖𝒓𝒎𝒆𝒕 𝒄𝒂𝒓𝒑𝒂𝒄𝒄𝒊𝒐o</h3>
-                        <div class="price-row">
-                            <span class="price">𝑹$ 𝟕𝟒,𝟎𝟎</span>
-                            <button class="add-btn" onclick="addToCart('Gourmet Carpaccio', 74)"><i class="fa-solid fa-plus"></i></button>
-                        </div>
+                </div>
+                <div class="product-card-3d" data-name="Lait Caramel" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/lait4.png"><div class="product-info"><h3>𝐋𝐚𝐢𝐭 𝐂𝐚𝐫𝐚𝐦𝐞𝐥</h3><div class="price">𝟏𝟕𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/lait4.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Lait Caramel', 170)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Lait Speculoos" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/lait5.png"><div class="product-info"><h3>𝐋𝐚𝐢𝐭 𝐒𝐩𝐞𝐜𝐮𝐥𝐨𝐨𝐬</h3><div class="price">𝟏𝟕𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/lait5.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Lait Speculoos', 170)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Lait Cacahuète" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/lait6.png"><div class="product-info"><h3>𝐋𝐚𝐢𝐭 𝐂𝐚𝐜𝐚𝐡𝐮ète</h3><div class="price">𝟏𝟕𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/lait6.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Lait Cacahuète', 170)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Lait Vanille" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/lait7.png"><div class="product-info"><h3>𝐋𝐚𝐢𝐭 𝐕𝐚𝐧𝐢𝐥𝐥𝐞</h3><div class="price">𝟏𝟕𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/lait7.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Lait Vanille', 170)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Lait Coco" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/lait8.png"><div class="product-info"><h3>𝐋𝐚𝐢𝐭 𝐂𝐨𝐜𝐨</h3><div class="price">𝟏𝟕𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/lait8.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Lait Coco', 170)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Lait Praliné" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/lait9.png"><div class="product-info"><h3>𝐋𝐚𝐢𝐭 𝐏𝐫𝐚𝐥𝐢𝐧é</h3><div class="price">𝟏𝟕𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/lait9.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Lait Praliné', 170)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Lait Biscuit" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/lait10.png"><div class="product-info"><h3>𝐋𝐚𝐢𝐭 𝐁𝐢𝐬𝐜𝐮𝐢𝐭</h3><div class="price">𝟏𝟕𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/lait10.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Lait Biscuit', 170)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Lait Raisins" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/lait11.png"><div class="product-info"><h3>𝐋𝐚𝐢𝐭 𝐑𝐚𝐢𝐬𝐢𝐧𝐬</h3><div class="price">𝟏𝟕𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/lait11.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Lait Raisins', 170)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Lait Miel" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/lait12.png"><div class="product-info"><h3>𝐋𝐚𝐢𝐭 𝐌𝐢𝐞𝐥</h3><div class="price">𝟏𝟕𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/lait12.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Lait Miel', 170)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Lait Crème" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/lait13.png"><div class="product-info"><h3>𝐋𝐚𝐢𝐭 𝐂𝐫è𝐦𝐞</h3><div class="price">𝟏𝟕𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/lait13.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Lait Crème', 170)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Lait Intense" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/lait14.png"><div class="product-info"><h3>𝐋𝐚𝐢𝐭 𝐈𝐧𝐭𝐞𝐧𝐬𝐞</h3><div class="price">𝟏𝟕𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/lait14.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Lait Intense', 170)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Lait Douceur" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/lait15.png"><div class="product-info"><h3>𝐋𝐚𝐢𝐭 𝐃𝐨𝐮𝐜𝐞𝐮𝐫</h3><div class="price">𝟏𝟕𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/lait15.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Lait Douceur', 170)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Lait Velours" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/lait16.png"><div class="product-info"><h3>𝐋𝐚𝐢𝐭 𝐕𝐞𝐥𝐨𝐮𝐫𝐬</h3><div class="price">𝟏𝟕𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/lait16.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Lait Velours', 170)">Ajouter au Panier</button></div>
                     </div>
                 </div>
             </div>
-            <div class="dish-card-3d" data-name="𝒔𝒂𝒍𝒂𝒅 𝒇𝒓𝒆𝒔𝒄𝒂">
-                <div class="card-glow"></div>
-                <div class="img-container"><img src="sl2.png" alt="Dish 3"></div>
-                <div class="dish-details">
-                    <h3>𝒔𝒂𝒍𝒂𝒅 𝒇𝒓𝒆𝒔𝒄𝒂</h3>
-                    <div class="price-row">
-                        <span class="price">𝑹$ 𝟑𝟗,𝟎𝟎</span>
-                        <button class="add-btn" onclick="addToCart('Salad Fresca', 39)"><i class="fa-solid fa-plus"></i></button>
-                    </div>
-                </div>
-               
         </section>
 
-        
-        <section id="brunch-section" class="grid-section">
-            <h2 class="section-title" data-translate="title_brunch"></h2>
-            
-            </div>
-            <div class="dishes-3d-grid"><div class="dishes-3d-grid">
-                <div class="dish-card-3d" data-name="brunch benedict">
-                    <div class="card-glow"></div>
-                    <div class="img-container"><img src="kas4.png" alt="Brunch 1"></div>
-                    <div class="dish-details">
-                        <h3>𝑩𝒓𝒖𝒏𝒄𝒉 𝑩𝒆𝒏𝒆𝒅𝒊𝒄𝒕</h3>
-                        <div class="price-row">
-                            <span class="price">𝑹$ 𝟒𝟓,𝟎𝟎</span>
-                            <button class="add-btn" onclick="addToCart('Brunch Benedict', 45)"><i class="fa-solid fa-plus"></i></button>
-                        </div>
+        <section id="dulcey" class="product-section">
+            <h2 data-tr="sec-dulcey">𝐂𝐡𝐨𝐜𝐨𝐥𝐚𝐭 𝐃𝐮𝐥𝐜𝐞𝐲</h2>
+            <div class="products-grid" id="grid-dulcey">
+                <div class="product-card-3d" data-name="Dulcey Gold" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/dulcey1.png"><div class="product-info"><h3>𝐃𝐮𝐥𝐜𝐞𝐲 𝐆𝐨𝐥𝐝</h3><div class="price">190 DH</div></div></div>
+                        <div class="card-back"><img src="images/dulcey1.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Dulcey Gold', 190)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Dulcey Biscuit" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/dulcey2.png"><div class="product-info"><h3>𝐃𝐮𝐥𝐜𝐞𝐲 𝐁𝐢𝐬𝐜𝐮𝐢𝐭</h3><div class="price">190 DH</div></div></div>
+                        <div class="card-back"><img src="images/dulcey2.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Dulcey Biscuit', 190)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Dulcey Éclats" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/dulcey3.png"><div class="product-info"><h3>𝐃𝐮𝐥𝐜𝐞𝐲 𝐄́𝐜𝐥𝐚𝐭𝐬</h3><div class="price">190 DH</div></div></div>
+                        <div class="card-back"><img src="images/dulcey3.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Dulcey Éclats', 190)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Dulcey Ambré" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/dulcey4.png"><div class="product-info"><h3>𝐃𝐮𝐥𝐜𝐞𝐲 𝐀𝐦𝐛𝐫é</h3><div class="price">190 DH</div></div></div>
+                        <div class="card-back"><img src="images/dulcey4.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Dulcey Ambré', 190)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Dulcey Velvet" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/dulcey5.png"><div class="product-info"><h3>𝐃𝐮𝐥𝐜𝐞𝐲 𝐕𝐞𝐥𝐨𝐮𝐫𝐬</h3><div class="price">190 DH</div></div></div>
+                        <div class="card-back"><img src="images/dulcey5.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Dulcey Velvet', 190)">Ajouter au Panier</button></div>
                     </div>
                 </div>
             </div>
-            <div class="dish-card-3d" data-name="brunch benedict">
-                    <div class="card-glow"></div>
-                    <div class="img-container"><img src="cafe.png" alt="Brunch 1"></div>
-                    <div class="dish-details">
-                        <h3>𝑩𝒓𝒖𝒏𝒄𝒉 𝑩𝒆𝒏𝒆𝒅𝒊𝒄𝒕</h3>
-                        <div class="price-row">
-                            <span class="price">𝑹$ 𝟒𝟓,𝟎𝟎</span>
-                            <button class="add-btn" onclick="addToCart('Brunch Benedict', 45)"><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-            <div class="dishes-3d-grid">
-                <div class="dish-card-3d" data-name="brunch benedict">
-                    <div class="card-glow"></div>
-                    <div class="img-container"><img src="kas.png" alt="Brunch 1"></div>
-                    <div class="dish-details">
-                        <h3>𝑩𝒓𝒖𝒏𝒄𝒉 𝑩𝒆𝒏𝒆𝒅𝒊𝒄𝒕</h3>
-                        <div class="price-row">
-                            <span class="price">𝑹$ 𝟒𝟓,𝟎𝟎</span>
-                            <button class="add-btn" onclick="addToCart('Brunch Benedict', 45)"><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="dishes-3d-grid">
-                <div class="dish-card-3d" data-name="brunch benedict">
-                    <div class="card-glow"></div>
-                    <div class="img-container"><img src="kas6.png" alt="Brunch 1"></div>
-                    <div class="dish-details">
-                        <h3>𝑩𝒓𝒖𝒏𝒄𝒉 𝑩𝒆𝒏𝒆𝒅𝒊𝒄𝒕</h3>
-                        <div class="price-row">
-                            <span class="price">𝑹$ 𝟒𝟓,𝟎𝟎</span>
-                            <button class="add-btn" onclick="addToCart('Brunch Benedict', 45)"><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                <div class="dish-card-3d" data-name="brunch benedict">
-                    <div class="card-glow"></div>
-                    <div class="img-container"><img src="cafe.png" alt="Brunch 1"></div>
-                    <div class="dish-details">
-                        <h3>𝑩𝒓𝒖𝒏𝒄𝒉 𝑩𝒆𝒏𝒆𝒅𝒊𝒄𝒕</h3>
-                        <div class="price-row">
-                            <span class="price">𝑹$ 𝟒𝟓,𝟎𝟎</span>
-                            <button class="add-btn" onclick="addToCart('Brunch Benedict', 45)"><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="dishes-3d-grid">
-                <div class="dish-card-3d" data-name="brunch benedict">
-                    <div class="card-glow"></div>
-                    <div class="img-container"><img src="KAS2.png" alt="Brunch 1"></div>
-                    <div class="dish-details">
-                        <h3>𝑩𝒓𝒖𝒏𝒄𝒉 𝑩𝒆𝒏𝒆𝒅𝒊𝒄𝒕</h3>
-                        <div class="price-row">
-                            <span class="price">𝑹$ 𝟒𝟓,𝟎𝟎</span>
-                            <button class="add-btn" onclick="addToCart('Brunch Benedict', 45)"><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
         </section>
 
-        <section id="antepasto-section" class="grid-section">
-            <h2 class="section-title" data-translate="title_antepasto"></h2>
-            <div class="dishes-3d-grid">
-                <div class="dish-card-3d" data-name="antepasto misto">
-                    
-                    <div class="dish-card-3d" data-name="brunch benedict">
-                    <div class="card-glow"></div>
-                    <div class="img-container"><img src="menu9.png" alt="Brunch 1"></div>
-                    <div class="dish-details">
-                        <h3>𝑩𝒓𝒖𝒏𝒄𝒉 𝑩𝒆𝒏𝒆𝒅𝒊𝒄𝒕</h3>
-                        <div class="price-row">
-                            <span class="price">𝑹$ 𝟒𝟓,𝟎𝟎</span>
-                            <button class="add-btn" onclick="addToCart('Brunch Benedict', 45)"><i class="fa-solid fa-plus"></i></button>
-                        </div>
+        <section id="sucre" class="product-section">
+            <h2 data-tr="sec-sucre">𝐂𝐡𝐨𝐜𝐨𝐥𝐚𝐭 𝐬𝐚𝐧𝐬 𝐒𝐮𝐜𝐫𝐞</h2>
+            <div class="products-grid" id="grid-sucre">
+                <div class="product-card-3d" data-name="Diet Noir" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/sucre1.png"><div class="product-info"><h3>𝐃𝐢𝐞𝐭 𝐍𝐨𝐢𝐫</h3><div class="price">200 DH</div></div></div>
+                        <div class="card-back"><img src="images/sucre1.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Diet Noir', 200)">Ajouter au Panier</button></div>
                     </div>
                 </div>
-
-                </div>
-                    <div class="dish-card-3d" data-name="antepasto misto">
-                    <div class="card-glow"></div>
-                    <div class="img-container"><img src="menu5.png" alt="Antepasto 1"></div>
-                    <div class="dish-details">
-                        <h3>𝑨𝒏𝒕𝒆𝒑𝒂𝒔𝒕𝒐 𝑴𝒊𝒔𝒕𝒐</h3>
-                        <div class="price-row">
-                            <span class="price">𝑹$ 𝟓𝟓,𝟎𝟎</span>
-                            <button class="add-btn" onclick="addToCart('Antepasto Misto', 55)"><i class="fa-solid fa-plus"></i></button>
-                        </div>
+                <div class="product-card-3d" data-name="Diet Lait" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/sucre2.png"><div class="product-info"><h3>𝐃𝐢𝐞𝐭 𝐋𝐚𝐢𝐭</h3><div class="price">200 DH</div></div></div>
+                        <div class="card-back"><img src="images/sucre2.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Diet Lait', 200)">Ajouter au Panier</button></div>
                     </div>
                 </div>
-                   
-                <div class="dish-card-3d" data-name="antepasto misto">
-                    <div class="card-glow"></div>
-                    <div class="img-container"><img src="menu7.png" alt="Antepasto 1"></div>
-                    <div class="dish-details">
-                        <h3>𝑨𝒏𝒕𝒆𝒑𝒂𝒔𝒕𝒐 𝑴𝒊𝒔𝒕𝒐</h3>
-                        <div class="price-row">
-                            <span class="price">𝑹$ 𝟓𝟓,𝟎𝟎</span>
-                            <button class="add-btn" onclick="addToCart('Antepasto Misto', 55)"><i class="fa-solid fa-plus"></i></button>
-                        </div>
+                <div class="product-card-3d" data-name="Stevia Pure" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/sucre3.png"><div class="product-info"><h3>𝐃𝐭𝐞𝐯𝐢𝐚 𝐏𝐮𝐫𝐞</h3><div class="price">200 DH</div></div></div>
+                        <div class="card-back"><img src="images/sucre3.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Stevia Pure', 200)">Ajouter au Panier</button></div>
                     </div>
                 </div>
-                <div class="dish-card-3d" data-name="antepasto misto">
-                    <div class="card-glow"></div>
-                    <div class="img-container"><img src="menu7.png" alt="Antepasto 1"></div>
-                    <div class="dish-details">
-                        <h3>𝑨𝒏𝒕𝒆𝒑𝒂𝒔𝒕𝒐 𝑴𝒊𝒔𝒕𝒐</h3>
-                        <div class="price-row">
-                            <span class="price">𝑹$ 𝟓𝟓,𝟎𝟎</span>
-                            <button class="add-btn" onclick="addToCart('Antepasto Misto', 55)"><i class="fa-solid fa-plus"></i></button>
-                        </div>
+                <div class="product-card-3d" data-name="Cacao 100%" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/sucre4.png"><div class="product-info"><h3>𝐂𝐚𝐜𝐚𝐨 100%</h3><div class="price">200 DH</div></div></div>
+                        <div class="card-back"><img src="images/sucre4.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Cacao 100%', 200)">Ajouter au Panier</button></div>
                     </div>
                 </div>
-                <div class="dish-card-3d" data-name="antepasto misto">
-                    <div class="card-glow"></div>
-                    <div class="img-container"><img src="menu7.png" alt="Antepasto 1"></div>
-                    <div class="dish-details">
-                        <h3>𝑨𝒏𝒕𝒆𝒑𝒂𝒔𝒕𝒐 𝑴𝒊𝒔𝒕𝒐</h3>
-                        <div class="price-row">
-                            <span class="price">𝑹$ 𝟓𝟓,𝟎𝟎</span>
-                            <button class="add-btn" onclick="addToCart('Antepasto Misto', 55)"><i class="fa-solid fa-plus"></i></button>
-                        </div>
+                <div class="product-card-3d" data-name="Fit Amandes" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/sucre5.png"><div class="product-info"><h3>𝐅𝐢𝐭 𝐀𝐦𝐚𝐧𝐝𝐞𝐬</h3><div class="price">200 DH</div></div></div>
+                        <div class="card-back"><img src="images/sucre5.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Fit Amandes', 200)">Ajouter au Panier</button></div>
                     </div>
                 </div>
-                <div class="dish-card-3d" data-name="antepasto misto">
-                    <div class="card-glow"></div>
-                    <div class="img-container"><img src="menu7.png" alt="Antepasto 1"></div>
-                    <div class="dish-details">
-                        <h3>𝑨𝒏𝒕𝒆𝒑𝒂𝒔𝒕𝒐 𝑴𝒊𝒔𝒕𝒐</h3>
-                        <div class="price-row">
-                            <span class="price">𝑹$ 𝟓𝟓,𝟎𝟎</span>
-                            <button class="add-btn" onclick="addToCart('Antepasto Misto', 55)"><i class="fa-solid fa-plus"></i></button>
-                        </div>
+                <div class="product-card-3d" data-name="Fit Nature" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/sucre6.png"><div class="product-info"><h3>𝐅𝐢𝐭 𝐍𝐚𝐭𝐮𝐫𝐞</h3><div class="price">200 DH</div></div></div>
+                        <div class="card-back"><img src="images/sucre6.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Fit Nature', 200)">Ajouter au Panier</button></div>
                     </div>
                 </div>
             </div>
-            
         </section>
+
+        <section id="confiserie" class="product-section">
+            <h2 data-tr="sec-confiserie">𝐆𝐚𝐦𝐦𝐞 𝐂𝐨𝐧𝐟𝐢𝐬𝐞𝐫𝐢𝐞</h2>
+            <div class="products-grid" id="grid-confiserie">
+                <div class="product-card-3d" data-name="Caramel Salé" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/confiserie1.png"><div class="product-info"><h3>𝐂𝐚𝐫𝐚𝐦𝐞𝐥 𝐒𝐚𝐥𝐞́</h3><div class="price">150 DH</div></div></div>
+                        <div class="card-back"><img src="images/confiserie1.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Caramel Salé', 150)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Nougat Miel" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/confiserie2.png"><div class="product-info"><h3>𝐍𝐨𝐮𝐠𝐚𝐭 𝐌𝐢𝐞𝐥</h3><div class="price">150 DH</div></div></div>
+                        <div class="card-back"><img src="images/confiserie2.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Nougat Miel', 150)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Pâte de Fruit" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/confiserie3.png"><div class="product-info"><h3>𝐏𝐚̂𝐭𝐞 𝐝𝐞 𝐅𝐫𝐮𝐢𝐭</h3><div class="price">150 DH</div></div></div>
+                        <div class="card-back"><img src="images/confiserie3.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Pâte de Fruit', 150)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Calisson" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/confiserie4.png"><div class="product-info"><h3>𝐂𝐚𝐥𝐢𝐬𝐬𝐨𝐧</h3><div class="price">150 DH</div></div></div>
+                        <div class="card-back"><img src="images/confiserie4.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Calisson', 150)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Guimauve" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/confiserie5.png"><div class="product-info"><h3>𝐆𝐮𝐢𝐦𝐚𝐮𝐯𝐞</h3><div class="price">150 DH</div></div></div>
+                        <div class="card-back"><img src="images/confiserie5.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Guimauve', 150)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Truffes Classiques" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/confiserie6.png"><div class="product-info"><h3>𝐓𝐫𝐮𝐟𝐟𝐞𝐬</h3><div class="price">150 DH</div></div></div>
+                        <div class="card-back"><img src="images/confiserie6.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Truffes Classiques', 150)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Pralines Roses" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/confiserie7.png"><div class="product-info"><h3>𝐏𝐫𝐚𝐥𝐢𝐧𝐞𝐬 𝐑𝐨𝐬𝐞𝐬</h3><div class="price">150 DH</div></div></div>
+                        <div class="card-back"><img src="images/confiserie7.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Pralines Roses', 150)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Mendians" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/confiserie8.png"><div class="product-info"><h3>𝐌𝐞𝐧𝐝𝐢𝐚𝐧𝐬</h3><div class="price">150 DH</div></div></div>
+                        <div class="card-back"><img src="images/confiserie8.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Mendians', 150)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ombrelle" class="product-section collection-main">
+            <h2>Collection 𝑶𝒎𝒃𝒓𝒆𝒍𝒍𝒆</h2>
+            <div class="products-grid">
+                <div class="product-card-3d" data-name="Ombrelle Noir" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/ombrelle1.png"><div class="product-info"><h3>𝐎𝐦𝐛𝐫𝐞𝐥𝐥𝐞 𝐍𝐨𝐢𝐫</h3><div class="price">220 DH</div></div></div>
+                        <div class="card-back"><img src="images/ombrelle1.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Ombrelle Noir', 220)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Ombrelle Lait" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/ombrelle2.png"><div class="product-info"><h3>𝐎𝐦𝐛𝐫𝐞𝐥𝐥𝐞 𝐋𝐚𝐢𝐭</h3><div class="price">220 DH</div></div></div>
+                        <div class="card-back"><img src="images/ombrelle2.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Ombrelle Lait', 220)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Ombrelle Blanc" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/ombrelle3.png"><div class="product-info"><h3>𝐎𝐦𝐛𝐫𝐞𝐥𝐥𝐞 𝐁𝐥𝐚𝐧𝐜</h3><div class="price">220 DH</div></div></div>
+                        <div class="card-back"><img src="images/ombrelle3.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Ombrelle Blanc', 220)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Ombrelle Caramel" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/ombrelle4.png"><div class="product-info"><h3>𝐎𝐦𝐛𝐫𝐞𝐥𝐥𝐞 𝐂𝐚𝐫𝐚𝐦𝐞𝐥</h3><div class="price">220 DH</div></div></div>
+                        <div class="card-back"><img src="images/ombrelle4.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Ombrelle Caramel', 220)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Ombrelle Ruby" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/ombrelle5.png"><div class="product-info"><h3>𝐎𝐦𝐛𝐫𝐞𝐥𝐥𝐞 𝐑𝐮𝐛𝐲</h3><div class="price">220 DH</div></div></div>
+                        <div class="card-back"><img src="images/ombrelle5.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Ombrelle Ruby', 220)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Ombrelle Mix" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/ombrelle6.png"><div class="product-info"><h3>𝐎𝐦𝐛𝐫𝐞𝐥𝐥𝐞 𝐌𝐢𝐱</h3><div class="price">250 DH</div></div></div>
+                        <div class="card-back"><img src="images/ombrelle6.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Ombrelle Mix', 250)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="zlipse" class="product-section collection-sub glass-blur-section">
+            <h2>Collection 𝒁𝒍𝒊𝒑𝒔𝒆</h2>
+            <div class="products-grid">
+                <div class="product-card-3d" data-name="Zlipse Unique" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/zlipse1.png"><div class="product-info"><h3>𝐙𝐥𝐢𝐩𝐬𝐞 𝐏𝐫𝐞𝐦𝐢𝐮𝐦</h3><div class="price">240 DH</div></div></div>
+                        <div class="card-back"><img src="images/zlipse1.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Zlipse Premium', 240)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="fuzion" class="product-section collection-sub glass-blur-section">
+            <h2>Collection 𝐅𝐮𝐳𝐢𝐨𝐧</h2>
+            <div class="products-grid">
+                <div class="product-card-3d" data-name="Fuzion Edition" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/fuzion1.png"><div class="product-info"><h3>𝐅𝐮𝐳𝐢𝐨𝐧 𝐒𝐩é𝐜𝐢𝐚𝐥𝐞</h3><div class="price">260 DH</div></div></div>
+                        <div class="card-back"><img src="images/fuzion1.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Fuzion Spéciale', 260)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lumea" class="product-section collection-sub glass-blur-section">
+            <h2>Collection 𝑳𝒖𝒎𝒆𝒂</h2>
+            <div class="products-grid">
+                <div class="product-card-3d" data-name="Lumea d'or" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/lumea1.png"><div class="product-info"><h3>𝐋𝐮𝐦𝐞𝐚 𝐋𝐮𝐱𝐮𝐫𝐲</h3><div class="price">240 DH</div></div></div>
+                        <div class="card-back"><img src="images/lumea1.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Lumea Luxury', 240)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cera" class="product-section collection-sub glass-blur-section">
+            <h2>Collection Céra</h2>
+            <div class="products-grid">
+                <div class="product-card-3d" data-name="Céra Classic" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/cera1.png"><div class="product-info"><h3>𝐂𝐞́𝐫𝐚 𝐂𝐥𝐚𝐬𝐬𝐢𝐜</h3><div class="price">230 DH</div></div></div>
+                        <div class="card-back"><img src="images/cera1.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Céra Classic', 230)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Céra Gold" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/cera2.png"><div class="product-info"><h3>𝐂𝐞́𝐫𝐚 𝐆𝐨𝐥𝐝</h3><div class="price">250 DH</div></div></div>
+                        <div class="card-back"><img src="images/cera2.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Céra Gold', 250)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Céra Dark" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/cera3.png"><div class="product-info"><h3>𝐂𝐞́𝐫𝐚 𝐃𝐚𝐫𝐤</h3><div class="price">230 DH</div></div></div>
+                        <div class="card-back"><img src="images/cera3.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Céra Dark', 230)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="drea" class="product-section collection-sub glass-blur-section">
+            <h2>Collection 𝑫𝒓𝒆́𝒂</h2>
+            <div class="products-grid">
+                <div class="product-card-3d" data-name="Dréa Douceur" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/drea1.png"><div class="product-info"><h3>𝐃𝐫𝐞́𝐚 𝐑𝐨𝐲𝐚𝐥</h3><div class="price">270 DH</div></div></div>
+                        <div class="card-back"><img src="images/drea1.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Dréa Royal', 270)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dorina" class="product-section collection-sub glass-blur-section">
+            <h2>Collection 𝑫𝒐𝒓𝒊𝒏𝒂</h2>
+            <div class="products-grid">
+                <div class="product-card-3d" data-name="Dorina Lait" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/dorina1.png"><div class="product-info"><h3>𝐃𝐨𝐫𝐢𝐧𝐚 𝐋𝐚𝐢𝐭</h3><div class="price">210 DH</div></div></div>
+                        <div class="card-back"><img src="images/dorina1.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Dorina Lait', 210)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Dorina Noir" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/dorina2.png"><div class="product-info"><h3>𝐃𝐨𝐫𝐢𝐧𝐚 𝐍𝐨𝐢𝐫</h3><div class="price">210 DH</div></div></div>
+                        <div class="card-back"><img src="images/dorina2.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Dorina Noir', 210)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Dorina Mix" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/dorina3.png"><div class="product-info"><h3>𝐃𝐨𝐫𝐢𝐧𝐚 𝐌𝐢𝐱</h3><div class="price">240 DH</div></div></div>
+                        <div class="card-back"><img src="images/dorina3.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Dorina Mix', 240)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="coffrets" class="product-section">
+            <h2 data-tr="sec-coffrets">𝑵𝒐𝒔 𝑪𝒐𝒇𝒇𝒓𝒆𝒕𝒔</h2>
+            <div class="products-grid" id="grid-coffrets">
+                <div class="product-card-3d" data-name="Coffret Prestige" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/coffret1.png"><div class="product-info"><h3>𝐂𝐨𝐟𝐟𝐫𝐞𝐭 𝐏𝐫𝐞𝐬𝐭𝐢𝐠𝐞</h3><div class="price">𝟑𝟓𝟎 𝑫𝑯</div></div></div>
+                        <div class="card-back"><img src="images/coffret1.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Coffret Prestige', 350)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Coffret Impérial" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/coffret2.png"><div class="product-info"><h3>𝐂𝐨𝐟𝐟𝐫𝐞𝐭 𝐈𝐦𝐩é𝐫𝐢𝐚𝐥</h3><div class="price">𝟒𝟐𝟎 𝑫𝑯</div></div></div>
+                        <div class="card-back"><img src="images/coffret2.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Coffret Impérial', 420)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Coffret Royal" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/coffret3.png"><div class="product-info"><h3>𝐂𝐨𝐟𝐟𝐫𝐞𝐭 𝐑𝐨𝐲𝐚𝐥</h3><div class="price">𝟓𝟎𝟎 𝑫𝑯</div></div></div>
+                        <div class="card-back"><img src="images/coffret3.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Coffret Royal', 500)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Coffret Découverte" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/coffret4.png"><div class="product-info"><h3>𝐂𝐨𝐟𝐟𝐫𝐞𝐭 𝐃é𝐜𝐨𝐯𝐞𝐫𝐭𝐞</h3><div class="price">𝟐𝟗𝟎 𝑫𝑯</div></div></div>
+                        <div class="card-back"><img src="images/coffret4.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Coffret Découverte', 290)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Coffret Sélection" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/coffret5.png"><div class="product-info"><h3>𝐂𝐨𝐟𝐟𝐫𝐞𝐭 𝐒é𝐥𝐞𝐜𝐭𝐢𝐨𝐧</h3><div class="price">𝟑𝟖𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/coffret5.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Coffret Sélection', 380)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Coffret Diamant" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/coffret6.png"><div class="product-info"><h3>𝐂𝐨𝐟𝐟𝐫𝐞𝐭 𝐃𝐢𝐚𝐦𝐚𝐧𝐭</h3><div class="price">𝟔𝟎𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/coffret6.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Coffret Diamant', 600)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Coffret Or" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/coffret7.png"><div class="product-info"><h3>𝐂𝐨𝐟𝐟𝐫𝐞𝐭 𝐎𝐫</h3><div class="price">𝟒𝟓𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/coffret7.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Coffret Or', 450)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Coffret Argent" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/coffret8.png"><div class="product-info"><h3>𝐂𝐨𝐟𝐟𝐫𝐞𝐭 𝐀𝐫𝐠𝐞𝐧𝐭</h3><div class="price">𝟑𝟒𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/coffret8.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Coffret Argent', 340)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Coffret Étoile" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/coffret9.png"><div class="product-info"><h3>𝐂𝐨𝐟𝐟𝐫𝐞𝐭 𝐄́𝐭𝐨𝐢𝐥𝐞</h3><div class="price">𝟑𝟏𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/coffret9.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Coffret Étoile', 310)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+                <div class="product-card-3d" data-name="Coffret Fête" onclick="this.classList.toggle('flipped')">
+                    <div class="product-card-inner">
+                        <div class="card-front"><img src="images/coffret10.png"><div class="product-info"><h3>𝐂𝐨𝐟𝐟𝐫𝐞𝐭 𝐅𝐞̂𝐭𝐞</h3><div class="price">𝟒𝟗𝟎 𝐃𝐇</div></div></div>
+                        <div class="card-back"><img src="images/coffret10.png"><button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Coffret Fête', 490)">Ajouter au Panier</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- 🌟 النافذة المنبثقة للـ Login وإنشاء حساب (Modal) -->
-    <div id="login-modal" class="modal-overlay">
-        <div class="modal-box">
-            <button class="close-modal" onclick="toggleLoginModal()">&times;</button>
-            
-            <!-- فورم تسجيل الدخول -->
-            <div id="login-form-wrapper">
-                <h2 data-translate="login_title">𝑬𝒏𝒕𝒓𝒂𝒓 𝒏𝒂 𝑪𝒐𝒏𝒕𝒂</h2>
-                <input type="email" placeholder="E-mail" class="modal-input">
-                <input type="password" placeholder="Senha" class="modal-input">
-                <button class="submit-modal-btn" data-translate="login_submit">𝑬𝒏𝒕𝒓𝒂𝒓</button>
-                <p class="switch-form-text">𝑵𝒂̃𝒐 𝒕𝒆𝒎 𝒄𝒐𝒏𝒕𝒂? <span onclick="switchForm(true)">𝑪𝒓𝒊𝒂𝒓 𝑪𝒐𝒏𝒕𝒂</span></p>
-            </div>
+    <div id="auth-modal" class="modal">
+        <div class="modal-content glass-effect">
+            <span class="close-btn" onclick="toggleModal('auth-modal')">×</span>
+            <img src="logo.png" class="modal-logo" alt="Logo">
+            <h3 data-tr="auth-title">𝐂𝐨𝐧𝐧𝐞𝐱𝐢𝐨𝐧 / 𝐈𝐧𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐨𝐧</h3>
+            <button class="google-btn"><i class="fab fa-google"></i> 𝐆𝐨𝐨𝐠𝐥𝐞</button>
+            <div class="separator"><span data-tr="or">𝐎𝐔</span></div>
+            <input type="text" placeholder="Nom et Prénom" id="auth-name">
+            <input type="tel" placeholder="Numéro de téléphone" id="auth-phone">
+            <button class="submit-btn" data-tr="register">𝐂𝐫𝐞́𝐞𝐫 𝐦𝐨𝐧 𝐜𝐨𝐦𝐩𝐭𝐞</button>
+        </div>
+    </div>
 
-            <!-- فورم إنشاء حساب جديد -->
-            <div id="register-form-wrapper" style="display: none;">
-                <h2 data-translate="register_title">𝑪𝒓𝒊𝒂𝒓 𝑵𝒐𝒗𝒂 𝑪𝒐𝒏𝒕𝒂</h2>
-                <input type="text" placeholder="Nome Completo" class="modal-input">
-                <input type="email" placeholder="E-mail" class="modal-input">
-                <input type="password" placeholder="Senha" class="modal-input">
-                <button class="submit-modal-btn" data-translate="register_submit">𝑪𝒂𝒅𝒂𝒔𝒕𝒓𝒂𝒓</button>
-                <p class="switch-form-text">𝑱𝒂́ 𝒕𝒆𝒎 𝒄𝒐𝒏𝒕𝒂?<span onclick="switchForm(false)">𝑭𝒂𝒛𝒆𝒓 𝑳𝒐𝒈𝒊𝒏</span></p>
+    <div id="cart-modal" class="modal">
+        <div class="modal-content glass-effect">
+            <span class="close-btn" onclick="toggleModal('cart-modal')">×</span>
+            <img src="logo.png" class="modal-logo" alt="Logo">
+            <h3 data-tr="cart-title">𝐕𝐨𝐭𝐫𝐞 𝐏𝐚𝐧𝐢𝐞𝐫</h3>
+            <div class="cart-items-container" id="cart-items-list"></div>
+            <div class="cart-footer">
+                <div class="total-price">𝐓𝐨𝐭𝐚𝐥:: <span id="cart-total-price">𝟎</span> 𝐃𝐇</div>
+                <button class="checkout-btn" onclick="sendToWhatsApp()" data-tr="checkout">𝐏𝐚𝐬𝐬𝐞𝐫 𝐥𝐚 𝐜𝐨𝐦𝐦𝐚𝐧𝐝𝐞 𝐯𝐢𝐚 𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩</button>
             </div>
         </div>
     </div>
 
-    <!-- 🌟 نافذة السلة الذكية (Cart Modal) -->
-    <div id="cart-modal" class="modal-overlay">
-        <div class="modal-box">
-            <button class="close-modal" onclick="toggleCartModal()">&times;</button>
-            <h2 data-translate="cart_title">𝑺𝒖𝒂 𝑪𝒂𝒓𝒓𝒊𝒏𝒉𝒐</h2>
-            <div id="cart-items-list">
-                <p style="color: #de3b9f; text-align: center; margin: 20px 0;">𝑺𝒖𝒂 𝒔𝒂𝒄𝒐𝒍𝒂 𝒆𝒔𝒕𝒂́ 𝒗𝒂𝒛𝒊𝒂
-            </div>
-            <div class="cart-summary">
-                <div class="𝒕𝒐𝒕𝒂𝒍-𝒓𝒐𝒘">
-                    <span>𝑻𝒐𝒕𝒂𝒍:</span>
-                    <span id="cart-total-price">𝑹$ 𝟎,𝟎𝟎</span>
-                </div>
-                <!-- زر إرسال الطلب عبر الواتساب مباشرة للكونطاك -->
-                <button class="whatsapp-checkout-btn" onclick="checkoutToWhatsapp()">
-                    <i class="fa-brands fa-whatsapp"></i> 𝑬𝒏𝒗𝒊𝒂𝒓 𝑷𝒆𝒅𝒊𝒅𝒐 𝒗𝒊𝒂 𝑾𝒉𝒂𝒕𝒔𝑨𝒑𝒑
-                </button>
-            </div>
+    <footer class="footer-3d-ticker">
+        <div class="ticker-wrap">
+            <div class="ticker-item" onclick="window.open('https://maps.app.goo.gl/vTMrMaogqEc3jbyn9')"><i class="fas fa-map-marked-alt"></i> <span data-tr="f-loc">𝐍𝐨𝐭𝐫𝐞 𝐁𝐨𝐮𝐭𝐢𝐪𝐮𝐞 (𝐂𝐚𝐬𝐚𝐛𝐥𝐚𝐧𝐜𝐚)</span></div>
+            <div class="ticker-item" onclick="window.open('https://www.instagram.com/reve.chocolatier')"><i class="fab fa-instagram"></i> @𝒓𝒆𝒗𝒆.𝒄𝒉𝒐𝒄𝒐𝒍𝒂𝒕𝒊𝒆𝒓</div>
+            <div class="ticker-item" onclick="location.href='tel:05 20 79 52 79'"><i class="fas fa-phone-alt"></i> 𝑪𝒂𝒍𝒍: +𝟐𝟏𝟐 𝟓 𝟐𝟎 𝟕𝟗 𝟓𝟐 𝟕𝟗</div>
+            <div class="ticker-item" onclick="location.href='https://wa.me/+2126 44 32 05 05'"><i class="fab fa-whatsapp"></i> 𝑾𝒉𝒂𝒕𝒔𝑨𝒑𝒑</div>
+            <div class="ticker-item" onclick="location.href='mailto:contact.revechocolatier@gmail.com'"><i class="far fa-envelope"></i>𝐜𝐨𝐧𝐭𝐚𝐜𝐭@𝐫𝐞𝐯𝐞𝐜𝐡𝐨𝐜𝐨𝐥𝐚𝐭𝐢𝐞𝐫.𝐜𝐨𝐦</div>
         </div>
-    </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
-<footer class="ticker-3d-wrapper">
-    <div class="ticker-3d-track">
-        <a href="https://instagram.com/wrooftopoficial" target="_blank" class="ticker-3d-link">𝑰𝒏𝒔𝒕𝒂𝒈𝒓𝒂𝒎: @𝑾 𝑹𝑶𝑶𝑭𝑻𝑶𝑷</a>
-        <a href="https://maps.app.goo.gl/4ZfMhJRwKjLAyPn67" target="_blank" class="ticker-3d-link">𝑳𝒐𝒄𝒂𝒍𝒊𝒛𝒂𝒄̧𝒂̃𝒐 𝑬𝒙𝒂𝒕𝒂</a>
-        <a href="whatsapp://send?phone=+𝟓𝟓𝟖𝟓𝟗𝟔𝟐𝟏𝟎𝟎𝟑𝟑&text=Olá! Gostaria de fazer um pedido." target="_blank" class="ticker-3d-link">𝑫𝒆𝒍𝒊𝒗𝒆𝒓𝒚 𝑾𝒉𝒂𝒕𝒔𝑨𝒑𝒑: +55 85 9621-0033</a>
-        <a href="https://instagram.com/wrooftopoficial" target="_blank" class="ticker-3d-link">𝑰𝒏𝒔𝒕𝒂𝒈𝒓𝒂𝒎: @𝑾 𝑹𝑶𝑶𝑭𝑻𝑶𝑷</a>
-        <a href="https://maps.app.goo.gl/4ZfMhJRwKjLAyPn67" target="_blank" class="ticker-3d-link"> 𝑳𝒐𝒄𝒂𝒍𝒊𝒛𝒂𝒄̧𝒂̃𝒐 𝑬𝒙𝒂𝒕𝒂</a>
-        <a href="whatsapp://send?phone=+𝟓𝟓𝟖𝟓𝟗𝟔𝟐𝟏𝟎𝟎𝟑𝟑&text=Olá! Gostaria de fazer um pedido." target="_blank" class="ticker-3d-link">𝑫𝒆𝒍𝒊𝒗𝒆𝒓𝒚 𝑾𝒉𝒂𝒕𝒔𝑨𝒑𝒑: +55 85 9621-0033</a>
-        <a href="https://instagram.com/wrooftopoficial" target="_blank" class="ticker-3d-link">𝑰𝒏𝒔𝒕𝒂𝒈𝒓𝒂𝒎: @𝑾 𝑹𝑶𝑶𝑭𝑻𝑶𝑷</a>
-        <a href="https://maps.app.goo.gl/4ZfMhJRwKjLAyPn67" target="_blank" class="ticker-3d-link"> 𝑳𝒐𝒄𝒂𝒍𝒊𝒛𝒂𝒄̧𝒂̃𝒐 𝑬𝒙𝒂𝒕𝒂</a>
-        <a href="whatsapp://send?phone=+𝟓𝟓𝟖𝟓𝟗𝟔𝟐𝟏𝟎𝟎𝟑𝟑&text=Olá! Gostaria de fazer um pedido." target="_blank" class="ticker-3d-link"> 𝑫𝒆𝒍𝒊𝒗𝒆𝒓𝒚 𝑾𝒉𝒂𝒕𝒔𝑨𝒑𝒑: +55 85 9621-0033</a>
-    </div>
-</footer>
 </html>

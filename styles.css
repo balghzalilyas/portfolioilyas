@@ -1,239 +1,116 @@
-:root {
-    --sand-white: #dec5c5;
-    --wave-white: #fcf0f0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
-body { 
-    font-family: 'Montserrat', sans-serif; 
-    color: rgb(243, 240, 240);
-    background: transparent;
-    overflow-x: hidden;
-}
-
-/* الفيديو كخلفية ثابتة */
-#bg-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
-}
-
-.global-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: -1;
-    pointer-events: none;
-}
-
-/* Navbar */
-.navbar { 
-    background: rgba(0, 0, 0, 0.15); 
-    backdrop-filter: blur(10px);
-    position: sticky; 
-    top: 0; 
-    z-index: 1000; 
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.nav-container { display: flex; align-items: center; justify-content: space-between;  }
-.main-logo { height: 70px; filter: brightness(0) invert(1); }
-
-.main-nav a {
-    text-decoration: none; 
-    color: #edeaea; 
-    margin: 0 15px; 
-    font-size: 20px; 
-    text-transform: uppercase;
-    font-weight: 2000;
-    transition: 0.3s;
-    letter-spacing: 1.5px;
-}
-.main-nav a:hover { color: var(--gold-accent); }
-
-/* Tools & Language Menu */
-.nav-tools { display: flex; align-items: center; gap: 20px; }
-.nav-tools a { color: #fff; font-size: 26px; text-decoration: none; transition: 0.3s; position: relative; }
-.nav-tools a:hover { color: var(--gold-accent); }
-
-.search-container {
-    display: flex;
-    align-items: center;
-    background: transparent;
-    padding: 5px 10px;
-    border-radius: 20px;
-    max-width: 0;
-    overflow: hidden;
-    transition: max-width 0.4s ease;
-}
-.search-container.active { max-width: 180px; padding: 5px 15px; }
-.search-container input {
-    background: transparent; border: none; outline: none; color: #fff; font-size: 13px; width: 140px;
-}
-.search-container input::placeholder { color: #ccc; }
-
-.lang-selector-nav select {
-    background: none;
-    color: #fff;
-    border: none;
-    padding: 6px 8px;
-    border-radius: 0px;
-    font-weight: bold;
-    cursor: pointer;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
     outline: none;
 }
-.lang-selector-nav select option { background: #014469; color: #fff; }
 
-#cart-count {
-    position: absolute; top: -10px; right: -10px; background: var(--gold-accent);
-    color: none; font-size: 10px; font-weight: bold; width: 18px; height: 18px;
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+html { scroll-behavior: smooth; }
+body { background-color: #000; color: #fff; overflow-x: hidden; }
+
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2;
+    object-fit: cover;
 }
 
-/* Hero */
-.hero-video-container {
-    height: 85vh; display: flex; align-items: center; justify-content: center; text-align: center;
-}
-.hero-content h1 { font-size: 4.5rem; font-weight: 900; letter-spacing: 3px; margin-bottom: 10px; }
-.hero-content p { font-size: 1.2rem; font-weight: 300; margin-bottom: 30px; letter-spacing: 1px; }
-.btn-primary { 
-    background: transparent; color: #f7f0f0; padding: 15px 40px; text-decoration: none; 
-    font-weight: bold; border-radius: 0px; transition: 0.3s; border: transparent 1px solid; text-transform: uppercase; letter-spacing: 2px;
-}
-.btn-primary:hover { background: transparent; color: #0c0b0b; }
-
-/* الأقسام والكروت بدون خلفيات بتأثير الـ 3D Flip */
-.products-grid { padding: 60px 40px; text-align: center; background: transparent !important; }
-.section-title { font-size: 1.8rem; letter-spacing: 4px; margin-bottom: 20px; text-transform: uppercase; font-weight: 700; }
-.container { display: flex; gap: 35px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
-
-/* إعدادات الفليب والـ 3D للكارطة عند الكليك */
-.product-card { 
-    width: 280px; 
-    perspective: 1000px; /* يعطي عمق البعد الثالث */
-    background: transparent !important;
+.glass-effect, .modal-content, .dropdown-content, .glass-blur-section {
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.card-3d-inner {
-    width: 100%;
-    height: 360px;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-}
-.product-card.flipped .card-3d-inner {
-    transform: rotateY(180deg);
-}
+.navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 999; background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(5px); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; padding: 10px 40px; max-width: 1400px; margin: 0 auto; }
+.main-logo { height: 60px; filter: brightness(0) invert(1); cursor: pointer; }
+.main-nav { display: flex; align-items: center; gap: 20px; }
+.main-nav a { color: #edeaea; text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.main-nav a:hover { color: #d4af37; }
 
-.img-container {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0; left: 0;
-    backface-visibility: hidden; /* يخفي الظهر أثناء الدوران */
-    border: none;
-    overflow: hidden;
-}
+.dropdown { position: relative; }
+.dropdown-content { display: none; position: absolute; top: 100%; left: 0; min-width: 220px; border-radius: 8px; padding: 10px 0; z-index: 100; }
+.dropdown-content a { display: block; padding: 10px 20px; font-size: 12px; }
+.dropdown:hover .dropdown-content { display: block; }
 
-.img-container img {
-    width: 100%; height: 100%; object-fit: cover;
-}
+.nav-tools { display: flex; align-items: center; gap: 20px; }
+.search-box { position: relative; display: flex; align-items: center; }
+.search-box input { background: rgba(255, 255, 255, 0.1); border: none; padding: 8px 35px 8px 15px; border-radius: 20px; color: #fff; width: 150px; transition: 0.4s; }
+.search-box input:focus { width: 220px; }
+.search-box i { position: absolute; right: 12px; color: #ccc; }
+.tool-icon { font-size: 18px; cursor: pointer; }
+.tool-icon:hover { color: #d4af37; }
 
-.back-face {
-    transform: rotateY(180deg);
-}
+.cart-icon-wrapper { position: relative; }
+#cart-count { position: absolute; top: -8px; right: -8px; background: #d4af37; color: #000; font-size: 10px; font-weight: 700; width: 16px; height: 16px; border-radius: 50%; display: flex; justify-content: center; align-items: center; }
 
-.product-info { padding: 15px 0; text-align: left; background: none; }
-.product-info h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #fff; }
-.price { font-weight: bold; margin-top: 5px; color: var(--gold-accent); }
+.lang-dropdown { position: relative; }
+.lang-content { display: none; position: absolute; right: 0; top: 100%; background: rgba(0,0,0,0.8); padding: 5px; border-radius: 4px; }
+.lang-content span { display: block; padding: 5px 10px; cursor: pointer; font-size: 11px; }
+.lang-dropdown:hover .lang-content { display: block; }
 
-.add-to-cart-btn {
-    width: 100%; background: transparent; color: #f7fffd; border:none;
-    padding: 10px; margin-top: 12px; cursor: pointer; font-weight: bold; transition: 0.3s;
-}
-.add-to-cart-btn:hover { background: ; color: #088d7d; border-color: none; }
+.main-content { padding-top: 100px; max-width: 1400px; margin: 0 auto; }
+.section-glass { padding: 40px; margin: 20px; text-align: center; border-radius: 15px; background: rgba(255,255,255,0.02); }
+.product-section { padding: 40px 20px; }
+.product-section h2 { font-weight: 300; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 30px; border-left: 3px solid #d4af37; padding-left: 15px; }
 
-/* سلة المشتريات الجانبية */
-.cart-sidebar {
-    position: fixed; top: 0; right: -400px; width: 400px; height: 100%;
-    background: transparent; backdrop-filter: blur(15px);
-    z-index: 2000; display: flex; flex-direction: column; transition: right 0.4s ease;
-}
-.cart-sidebar.open { right: 0; }
-.cart-header { padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; }
-.close-cart { font-size: 24px; cursor: pointer; }
-.cart-items-container { flex: 1; overflow-y: auto; padding: 20px; }
+/* شبكة العرض الاحترافية المتجاوبة */
+.products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+
+/* كروت الـ 3D الحرة الفخمة (بدون أي إطار مغلق أو خلفية بيضاء كارتونية) */
+.product-card-3d { background: transparent; perspective: 1000px; height: 380px; cursor: pointer; }
+.product-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-style: preserve-3d; }
+.product-card-3d.flipped .product-card-inner { transform: rotateY(180deg); }
+
+.card-front, .card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; background: transparent; }
+.card-back { transform: rotateY(180deg); }
+
+/* تأثير الظل الحر المباشر تحت حبة الشكلاط يعطي عمق ثري للـ 3D */
+.product-card-3d img { max-width: 90%; max-height: 240px; object-fit: contain; filter: drop-shadow(0 20px 25px rgba(0,0,0,0.65)); transition: transform 0.3s; }
+.product-card-3d:hover img { transform: translateY(-5px); }
+
+.product-info { margin-top: 15px; }
+.product-info h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+.product-info .price { color: #d4af37; font-weight: 700; margin-top: 5px; }
+.add-to-cart-btn { background: #d4af37; color: #000; border: none; padding: 10px 20px; margin-top: 15px; font-size: 11px; font-weight: 700; border-radius: 20px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
+
+/* النوافذ المنبثقة للـ Modals */
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 1000; justify-content: center; align-items: center; }
+.modal-content { width: 90%; max-width: 450px; padding: 30px; border-radius: none; position: relative; text-align: center; }
+.modal-logo { height: 80px; filter: brightness(0) invert(1); margin-bottom: 20px; }
+.close-btn { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; }
+
+.cart-items-container { max-height: 250px; overflow-y: auto; margin: 20px 0; text-align: left; }
 .cart-items-container::-webkit-scrollbar { width: 4px; }
-.cart-items-container::-webkit-scrollbar-thumb { background: var(--gold-accent); }
+.cart-items-container::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 10px; }
+.cart-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
-.cart-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
-.cart-item img { width: 60px; height: 80px; object-fit: cover; }
-.cart-item-details { flex: 1; }
-.cart-item-details h4 { font-size: 12px; }
-.remove-item { color: #f7ebeb; cursor: pointer; }
+/* الفوتر المتحرك 3D اللانهائي السفلي */
+.footer-3d-ticker { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(15px); padding: 15px 0; z-index: 998; overflow: hidden; transform: perspective(500px) rotateX(5deg); }
+.ticker-wrap { display: flex; white-space: nowrap; animation: ticker 25s linear infinite; }
+.ticker-item { display: inline-flex; align-items: center; gap: 10px; padding: 0 40px; color: #fff; font-size: 12px; font-weight: 600; cursor: pointer; }
+.ticker-item i { color: #d4af37; }
 
-.cart-footer { padding: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
-.checkout-btn { width: 100%; background: var(--gold-accent); color: #fdf4f4; padding: 15px; border: none; font-weight: bold; cursor: pointer; }
-
-/* نافذة الحساب المنبثقة */
-.account-modal {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: transparent;
-    backdrop-filter: blur(5px); z-index: 3000; display: flex; align-items: center; justify-content: center;
-    opacity: 0; pointer-events: none; transition: 0.3s ease;
-}
-.account-modal.open { opacity: 1; pointer-events: auto; }
-.modal-content { background: transparent; padding: 40px; width: 100%; max-width: 400px; position: relative; border: ; }
-.close-modal { position: absolute; top: 15px; right: 20px; font-size: 22px; cursor: pointer; }
-.modal-content input { width: 100%; padding: 12px; margin-bottom: 15px; background: transparent; border: 1px solid rgba(255,255,255,0.1); color: #fff; }
-.modal-submit { width: 100%; padding: 12px; background: transparent; color: #ffffff; border: none; font-weight: bold; cursor: pointer; }
-
-/* 3. شريط متحرك فخم 3D في نهاية الصفحة */
-.footer-3d-marquee {
-    width: 100%;
-    background: transparent,;
-    border-top: ;
-    padding: 20px 0;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 
-    margin-top: 50px;
+@keyframes ticker {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
 }
 
-.marquee-content {
-    display: flex;
-    white-space: nowrap;
-    gap: 60px;
-    animation: marquee-run 25s linear infinite;
+/* التجاوب والتوافق التام مع الشاشات المتعددة الهواتف والألواح */
+@media (max-width: 1024px) {
+    .products-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
 }
-
-.marquee-content span {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(18, 17, 17, 0.8); /* عمق نصوص الـ 3D */
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.marquee-content i {
-    color: white;
-    font-size: 16px;
-}
-
-/* حركة الشريط السلسة والمستمرة */
-@keyframes marquee-run {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+@media (max-width: 768px) {
+    .nav-container { padding: 10px 15px; }
+    .main-nav { display: none; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .product-card-3d { height: 310px; }
+    .product-card-3d img { max-height: 170px; }
 }
