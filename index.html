@@ -3,129 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>𝑪𝒓𝒆𝒂𝒕𝒊𝒗𝒆 𝒘𝒆𝒃 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>𝐄𝐜𝐨𝐒𝐮𝐫𝐟𝐒𝐡𝐨𝐩 | 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 𝐄𝐱𝐩𝐞𝐫𝐢𝐞𝐧𝐜𝐞</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;600;700&family=Syncopate:wght=700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="video-background">
-        <video autoplay loop muted playsinline>
-           <source src="vide2.mp4" type="video/mp4">
+    <div class="video-background-master">
+        <video autoplay muted loop playsinline id="main-bg-video">
+            <source src="surf.mp4" type="video/mp4">
         </video>
+        <div class="video-overlay-darkness"></div>
     </div>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="logo ilyas.png" alt="Logo" onerror="this.style.display='none';"> <span>𝑪𝒓𝒆𝒂𝒕𝒊𝒗𝒆 𝒘𝒆𝒃 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#hero">𝑯𝒐𝒎𝒆</a></li>
-            <li><a href="#projects">𝑷𝒓𝒐𝒋𝒆𝒄𝒕𝒔</a></li>
-            <li><a href="#contact">𝑪𝒐𝒏𝒕𝒂𝒄𝒕</a></li>
-            <li><a href="#ABOUT ME">𝐀𝐁𝐎𝐔𝐓 𝐌𝐄</a></li>
-        </ul>
-    </nav>
 
-    
-    <section id="hero" class="hero-section">
-        <div class="hero-content">
-            <h1>𝑪𝒓𝒆𝒂𝒕𝒊𝒗𝒆 𝒘𝒆𝒃 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓</h1>
-            <p>𝑩𝒖𝒊𝒍𝒅𝒊𝒏𝒈 𝒃𝒆𝒂𝒖𝒕𝒊𝒇𝒖𝒍, 𝒉𝒊𝒈𝒉-𝒑𝒆𝒓𝒇𝒐𝒓𝒎𝒂𝒏𝒄𝒆 𝒘𝒆𝒃𝒔𝒊𝒕𝒆𝒔 𝒘𝒊𝒕𝒉 𝒎𝒐𝒅𝒆𝒓𝒏 𝑼𝑰/𝑼𝑿 𝒅𝒆𝒔𝒊𝒈𝒏.</p>
-            <a href="#projects" class="btn">𝑽𝒊𝒆𝒘 𝑴𝒚 𝑾𝒐𝒓𝒌</a>
-        </div>
-    </section>
-
-    <!-- قسم المشاريع (Projects Section) -->
-    <section id="projects" class="projects-section">
-        <h2 class="section-title">𝑴𝒚 𝑷𝒓𝒐𝒋𝒆𝒄𝒕𝒔</h2>
-        <div class="projects-grid">
+    <header class="main-header">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="EcoSurfShop">
+                <span class="brand-text">𝐄𝐂𝐎𝐒𝐔𝐑𝐅<span class="accent-color">𝐒𝐇𝐎𝐏</span></span>
+            </div>
             
-            <!-- المشروع 1: موقع المطعم الـ 3D -->
-            <div class="project-card" data-tilt>
-                <div class="card-image">
-                    <!-- حط هنا سكرينشوت للموقع ديالك -->
-                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500wrooftop.netlify.app" alt="Restaurant Website">
-                </div>
-                <div class="card-info">
-                    <h3>𝟑𝑫 𝑹𝒆𝒔𝒕𝒂𝒖𝒓𝒂𝒏𝒕 𝑾𝒆𝒃𝒔𝒊𝒕𝒆</h3>
-                    <p>𝑨𝒏 𝒊𝒏𝒕𝒆𝒓𝒂𝒄𝒕𝒊𝒗𝒆, 𝒎𝒐𝒅𝒆𝒓𝒏 𝒓𝒆𝒔𝒕𝒂𝒖𝒓𝒂𝒏𝒕 𝒑𝒍𝒂𝒕𝒇𝒐𝒓𝒎 𝒇𝒆𝒂𝒕𝒖𝒓𝒊𝒏𝒈 𝒇𝒖𝒍𝒍 𝒓𝒆𝒔𝒑𝒐𝒏𝒔𝒊𝒗𝒆 𝒍𝒂𝒚𝒐𝒖𝒕 𝒂𝒏𝒅 𝒔𝒎𝒐𝒐𝒕𝒉 𝟑𝑫 𝒆𝒙𝒑𝒆𝒓𝒊𝒆𝒏𝒄𝒆.</p>
-                    <div class="tags">
-                        <span>𝑯𝑻𝑴𝑳</span><span>𝑪𝑺𝑺</span><span>𝑱𝒂𝒗𝒂𝑺𝒄𝒓𝒊𝒑𝒕</span>
-                    </div>
-                    <div class="card-buttons">
-    <!-- رابط الموقع اللايف من Netlify -->
-    <a href="https://wrooftop.netlify.app" target="_blank" class="card-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-    
-    <!-- رابط الكود ديال هاد المشروع فـ GitHub -->
-    <a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank" class="card-btn code-btn"><i class="fab fa-github"></i> Code</a>
-</div>
-                </div>
-            </div>
+            <nav class="nav-links">
+                <a href="#bodysurf">𝐁𝐎𝐃𝐘𝐒𝐔𝐑𝐅</a>
+                <a href="#boards">𝐁𝐎𝐀𝐑𝐃𝐒</a>
+                <a href="#suits">𝐒𝐔𝐈𝐓𝐒</a>
+                <a href="#accessories">𝐀𝐂𝐂𝐄𝐒𝐒𝐎𝐑𝐈𝐄𝐒</a>
+                <a href="#contact">𝐂𝐎𝐍𝐓𝐀𝐂𝐓</a>
+            </nav>
 
-            <!-- المشروع 2: متجر إلكتروني / E-commerce -->
-            <div class="project-card" data-tilt>
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500" alt="E-commerce Project">
+            <div class="nav-tools">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search product..." onkeyup="searchProduct()">
+                    <i class="fas fa-search"></i>
                 </div>
-                <div class="card-info">
-                    <h3>𝑬-𝒄𝒐𝒎𝒎𝒆𝒓𝒄𝒆 𝑴𝒂𝒏𝒂𝒈𝒆𝒎𝒆𝒏𝒕 𝑫𝒂𝒔𝒉𝒃𝒐𝒂𝒓𝒅</h3>
-                    <p>𝑨𝒏 𝒂𝒅𝒗𝒂𝒏𝒄𝒆𝒅 𝒄𝒐𝒏𝒄𝒆𝒑𝒕 𝒑𝒍𝒂𝒕𝒇𝒐𝒓𝒎 𝒇𝒐𝒓 𝒉𝒂𝒏𝒅𝒍𝒊𝒏𝒈 𝒍𝒐𝒈𝒊𝒔𝒕𝒊𝒄𝒔, 𝒐𝒓𝒅𝒆𝒓𝒔 𝒕𝒓𝒂𝒄𝒌𝒊𝒏𝒈, 𝒂𝒏𝒅 𝒑𝒓𝒐𝒅𝒖𝒄𝒕𝒔 𝒊𝒏𝒗𝒆𝒏𝒕𝒐𝒓𝒚.</p>
-                    <div class="tags">
-                        <span>𝑯𝑻𝑴𝑳</span><span>𝑪𝑺𝑺 𝑮𝒓𝒊𝒅</span><span>𝑱𝑺 𝑬𝑺𝟔</span>
-                    </div>
-                    <div class="card-buttons">
-    <!-- رابط الموقع اللايف من Netlify -->
-    <a href="https://aura7co.netlify.app" target="_blank" class="card-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-    
-    <!-- رابط الكود ديال هاد المشروع فـ GitHub -->
-    <a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank" class="card-btn code-btn"><i class="fab fa-github"></i> Code</a>
-</div>
-                </div>
+                <button class="tool-icon" onclick="openAuthPage()"><i class="far fa-user"></i></button>
+                <button class="tool-icon" onclick="openCartPanel()"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartCount">𝟎</span></button>
             </div>
-
-            <!-- المشروع 3: مشروع آخر -->
-            <div class="project-card" data-tilt>
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=500" alt="UI/UX Project">
-                </div>
-                <div class="card-info">
-                    <h3>𝑰𝒏𝒕𝒆𝒓𝒂𝒄𝒕𝒊𝒗𝒆 𝑼𝑰 𝑪𝒐𝒎𝒑𝒐𝒏𝒆𝒏𝒕𝒔</h3>
-                    <p>𝑨 𝒄𝒐𝒍𝒍𝒆𝒄𝒕𝒊𝒐𝒏 𝒐𝒇 𝒄𝒓𝒆𝒂𝒕𝒊𝒗𝒆 𝒘𝒆𝒃 𝒂𝒏𝒊𝒎𝒂𝒕𝒊𝒐𝒏𝒔, 𝒈𝒍𝒂𝒔𝒔𝒎𝒐𝒓𝒑𝒉𝒊𝒔𝒎 𝒅𝒆𝒔𝒊𝒈𝒏𝒔, 𝒂𝒏𝒅 𝒎𝒊𝒄𝒓𝒐-𝒊𝒏𝒕𝒆𝒓𝒂𝒄𝒕𝒊𝒐𝒏𝒔.</p>
-                    <div class="tags">
-                        <span>𝑪𝑺𝑺 𝑨𝒏𝒊𝒎𝒂𝒕𝒊𝒐𝒏</span><span>𝑽𝒂𝒏𝒊𝒍𝒍𝒂 𝑱𝑺</span>
-                    </div>
-                    <div class="card-buttons">
-    
-    <a href="https://ecosurfshop.netlify.app" target="_blank" class="card-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-    
-    <a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank" class="card-btn code-btn"><i class="fab fa-github"></i> Code</a>
-</div>
-                </div>
-            </div>
-
         </div>
-    <section id="about" class="about-section" style="padding: 80px 8%; text-align: center;">
-    <h2 class="section-title">𝐀𝐁𝐎𝐔𝐓 𝐌𝐄</h2>
-    <p style="font-size: 18px; color: #fdf3f3; max-width: 700px; margin: 0 auto; line-height: 1.8;">
-       𝑰'𝒎 <span style="color: #00f2fe; font-weight: bold;">𝑰'𝒎 𝐈𝐥𝐲𝐚𝐬 𝒃𝒂𝒍𝒈𝒉𝒛𝒂𝒍</span>, 𝐚 𝟏𝟗-𝐲𝐞𝐚𝐫-𝐨𝐥𝐝 𝐖𝐞𝐛 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫 𝐰𝐢𝐭𝐡 𝟐+ 𝐲𝐞𝐚𝐫𝐬 𝐨𝐟 𝐞𝐱𝐩𝐞𝐫𝐢𝐞𝐧𝐜𝐞. 𝐈 𝐬𝐩𝐞𝐜𝐢𝐚𝐥𝐢𝐳𝐞 𝐢𝐧 𝐦𝐨𝐝𝐞𝐫𝐧 𝐟𝐫𝐨𝐧𝐭-𝐞𝐧𝐝 𝐭𝐞𝐜𝐡 𝐚𝐧𝐝 𝐔𝐈/𝐔𝐗 𝐝𝐞𝐬𝐢𝐠𝐧, 𝐭𝐮𝐫𝐧𝐢𝐧𝐠 𝐜𝐫𝐞𝐚𝐭𝐢𝐯𝐞 𝐜𝐨𝐧𝐜𝐞𝐩𝐭𝐬 𝐢𝐧𝐭𝐨 𝐢𝐦𝐩𝐚𝐜𝐭𝐟𝐮𝐥 𝐝𝐢𝐠𝐢𝐭𝐚𝐥 𝐞𝐱𝐩𝐞𝐫𝐢𝐞𝐧𝐜𝐞𝐬 𝐰𝐢𝐭𝐡 𝐜𝐥𝐞𝐚𝐧, 𝐡𝐢𝐠𝐡-𝐩𝐞𝐫𝐟𝐨𝐫𝐦𝐚𝐧𝐜𝐞 𝐜𝐨𝐝𝐞.
-    </p>
-</section>
-    <section id="contact" class="contact-section">
-        <h2>𝑮𝒆𝒕 𝑰𝒏 𝑻𝒐𝒖𝒄𝒉</h2>
-        <p>𝑯𝒂𝒗𝒆 𝒂 𝒑𝒓𝒐𝒋𝒆𝒄𝒕 𝒊𝒏 𝒎𝒊𝒏𝒅? 𝑳𝒆𝒕'𝒔 𝒃𝒖𝒊𝒍𝒅 𝒔𝒐𝒎𝒆𝒕𝒉𝒊𝒏𝒈 𝒂𝒎𝒂𝒛𝒊𝒏𝒈 𝒕𝒐𝒈𝒆𝒕𝒉𝒆𝒓.</p>
-        <div class="social-links">
-            <a href="https://github.com/balghzalilyas" target="_blank"><i class="fab fa-github"></i></a>
-<a href="https://linkedin.com/in/Ilyas balghzal" target="_blank"><i class="fab fa-linkedin"></i></a>
-<a href="mailto:balghzalilyas@gmail.com"><i class="fas fa-envelope"></i></a>
-<a href="https://instagram.com/ilyas_balghzal
-" target="_blank"><i class="fab fa-instagram"></i></a>
-<a href="https://wa.me/773620718" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="reveal">𝑹𝑰𝑫𝑬 𝑻𝑯𝑬 𝑶𝑪𝑬𝑨𝑵</h1>
+            <p class="reveal">𝐄𝐜𝐨𝐬𝐮𝐫𝐟𝐬𝐡𝐨𝐩 𝐅𝐫𝐢𝐞𝐧𝐝𝐥𝐲 𝐬𝐮𝐫𝐟 𝐠𝐞𝐚𝐫</p>
         </div>
-        <p class="footer-text">&copy; 𝟐𝟎𝟐𝟔 𝑫𝒆𝒗𝑷𝒐𝒓𝒕𝒇𝒐𝒍𝒊𝒐. 𝑨𝒍𝒍 𝒓𝒊𝒈𝒉𝒕𝒔 𝒓𝒆𝒔𝒆𝒓𝒗𝒆𝒅.</p>
     </section>
-    
 
-    <!-- جافا سكريبت لتأثير الـ 3D Tilt -->
+    <div id="authPageModal" class="full-page-auth">
+        <div class="auth-container-card">
+            <span class="close-auth-btn" onclick="closeAuthPage()">&times;</span>
+            <div class="auth-logo-header">
+                <img src="logo.png" alt="EcoSurfShop">
+                <h3>𝐄𝐂𝐎𝐒𝐔𝐑𝐅<span>𝐒𝐇𝐎𝐏</span></h3>
+            </div>
+            <div id="authStepContainer">
+                <h2>𝐒𝐢𝐠𝐧 𝐢𝐧 𝐨𝐫 𝐂𝐫𝐞𝐚𝐭𝐞 𝐚𝐧 𝐚𝐜𝐜𝐨𝐮𝐧𝐭</h2>
+                <p class="auth-instructions">𝐄𝐧𝐭𝐞𝐫 𝐲𝐨𝐮𝐫 𝐞𝐦𝐚𝐢𝐥 𝐨𝐫 𝐩𝐡𝐨𝐧𝐞 𝐧𝐮𝐦𝐛𝐞𝐫 𝐭𝐨 𝐜𝐨𝐧𝐧𝐞𝐜𝐭 𝐭𝐨 𝐲𝐨𝐮𝐫 𝐩𝐫𝐞𝐦𝐢𝐮𝐦 𝐬𝐮𝐫𝐟 𝐰𝐨𝐫𝐤𝐬𝐩𝐚𝐜𝐞.</p>
+                <form onsubmit="processDecathlonAuth(event)">
+                    <input type="text" id="authInputIdentifier" placeholder="Email or Mobile phone number" required>
+                    <button type="submit" class="auth-primary-btn">𝐂𝐎𝐍𝐓𝐈𝐍𝐔𝐄</button>
+                </form>
+            </div>
+            <div class="auth-footer-notes">
+                𝐁𝐲 𝐩𝐫𝐨𝐜𝐞𝐞𝐝𝐢𝐧𝐠, 𝐲𝐨𝐮 𝐜𝐨𝐧𝐬𝐞𝐧𝐭 𝐭𝐨 𝐨𝐮𝐫 𝐭𝐞𝐫𝐦𝐬 𝐨𝐟 𝐬𝐞𝐫𝐯𝐢𝐜𝐞 𝐚𝐧𝐝 𝐬𝐮𝐬𝐭𝐚𝐢𝐧𝐚𝐛𝐥𝐞 𝐨𝐜𝐞𝐚𝐧 𝐝𝐚𝐭𝐚 𝐠𝐮𝐢𝐝elines.
+            </div>
+        </div>
+    </div>
+
+    <div id="cartSidebarPanel" class="modal-overlay">
+        <div class="cart-sidebar-card">
+            <span class="close-btn" onclick="closeCartPanel()">&times;</span>
+            <h2>𝐘𝐨𝐮𝐫 𝐁𝐚𝐠</h2>
+            <div class="cart-registry-scroll" id="cartRegistryContainer">
+                <p class="empty-cart-text">𝐘𝐨𝐮𝐫 𝐛𝐚𝐠 𝐢𝐬 𝐜𝐮𝐫𝐫𝐞𝐧𝐭𝐥𝐲 𝐞𝐦𝐩𝐭𝐲.</p>
+            </div>
+            <div class="cart-footer-actions">
+                <button class="auth-primary-btn">𝐏𝐑𝐎𝐂𝐄𝐄𝐃 𝐓𝐎 𝐂𝐇𝐄𝐂𝐊𝐎𝐔𝐓</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-content-wrapper">
+        
+        <section id="bodysurf" class="reveal section-padding">
+            <h2 class="section-title">𝐁𝐎𝐃𝐘𝐒𝐔𝐑𝐅𝐈𝐍𝐆</h2>
+            <div class="slider-wrapper">
+                <button class="slide-arrow prev-arrow" onclick="slideSection('bodysurf-track', 'left')"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-track" id="bodysurf-track">
+                    <div class="product-card" data-name="Handplane Pro Elite">
+                        <div class="img-container"><img src="hand r.png" class="img-main"><img src="hand r.png" class="img-hover"></div>
+                        <div class="p-info"><h3>H𝐚𝐧𝐝𝐩𝐥𝐚𝐧𝐞 𝐏𝐫𝐨 𝐄𝐥𝐢𝐭𝐞</h3><p>𝟒𝟓𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐇𝐚𝐧𝐝𝐩𝐥𝐚𝐧𝐞 𝐏𝐫𝐨 𝐄𝐥𝐢𝐭𝐞', '𝟒𝟓𝟎 𝑫𝑯', 'hand r.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
+                    </div>
+                    <div class="product-card" data-name="Handplane Neo">
+                        <div class="img-container"><img src="handsurf.png" class="img-main"></div>
+                        <div class="p-info"><h3>𝐇𝐚𝐧𝐝𝐩𝐥𝐚𝐧𝐞 𝐍𝐞𝐨 𝐒𝐥𝐞𝐞𝐤</h3><p>𝟒𝟎𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐇𝐚𝐧𝐝𝐩𝐥𝐚𝐧𝐞 𝐍𝐞𝐨 𝐒𝐥𝐞𝐞𝐤', '𝟒𝟎𝟎 𝑫𝑯', 'handsurf.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
+                    </div>
+                    <div class="product-card" data-name="Handplane Carbon">
+                        <div class="img-container"><img src="handsurf2.png" class="img-main"></div>
+                        <div class="p-info"><h3>𝐇𝐚𝐧𝐝𝐩𝐥𝐚𝐧𝐞 𝐂𝐚𝐫𝐛𝐨𝐧 𝐓𝐞𝐜𝐡</h3><p>𝟔𝟎𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐇𝐚𝐧𝐝𝐩𝐥𝐚𝐧𝐞 𝐂𝐚𝐫𝐛𝐨𝐧 𝐓𝐞𝐜𝐡', '𝟔𝟎𝟎 𝑫𝑯', 'handsurf2.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
+                    </div>
+                </div>
+                <button class="slide-arrow next-arrow" onclick="slideSection('bodysurf-track', 'right')"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <section id="boards" class="reveal section-padding">
+            <h2 class="section-title">𝐒𝐔𝐑𝐅 𝐁𝐎𝐀𝐑𝐃𝐒</h2>
+            <div class="slider-wrapper">
+                <button class="slide-arrow prev-arrow" onclick="slideSection('boards-track', 'left')"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-track" id="boards-track">
+                    <div class="product-card" data-name="Eco Cruiser Board 7'2">
+                        <div class="img-container"><img src="board1.png" class="img-main"><img src="board1.png" class="img-hover"></div>
+                        <div class="p-info"><h3>𝐄𝐜𝐨 𝐂𝐫𝐮𝐢𝐬𝐞𝐫 𝐁𝐨𝐚𝐫𝐝 7\'2</h3><p>𝟑,𝟓𝟎𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐄𝐜𝐨 𝐂𝐫𝐮𝐢𝐬𝐞𝐫 𝐁𝐨𝐚𝐫𝐝 𝟕\'𝟐', '𝟑,𝟓𝟎𝟎 𝑫𝑯', 'board1.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
+                    </div>
+                    <div class="product-card" data-name="Storm Chaser 6'0">
+                        <div class="img-container"><img src="short.png" class="img-main"></div>
+                        <div class="p-info"><h3>𝐒𝐭𝐨𝐫𝐦 𝐂𝐡𝐚𝐬𝐞𝐫 6\'0</h3><p>𝟑,𝟐𝟎𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐒𝐭𝐨𝐫𝐦 𝐂𝐡𝐚𝐬𝐞𝐫 𝟔\'𝟎', '𝟑,𝟐𝟎𝟎 𝑫𝑯', 'short.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
+                    </div>
+                    <div class="product-card" data-name="Classic Longboard 9'0">
+                        <div class="img-container"><img src="lang.png" class="img-main"></div>
+                        <div class="p-info"><h3>𝐂𝐥𝐚𝐬𝐬𝐢𝐜 𝐋𝐨𝐧𝐠𝐛𝐨𝐚𝐫𝐝 9\'0</h3><p>𝟒,𝟏𝟎𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐂𝐥𝐚𝐬𝐬𝐢𝐜 𝐋𝐨𝐧𝐠𝐛𝐨𝐚𝐫𝐝 9\'0', '𝟒,𝟏𝟎𝟎 𝑫𝑯', 'lang.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
+                    </div>
+                </div>
+                <button class="slide-arrow next-arrow" onclick="slideSection('boards-track', 'right')"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <section id="suits" class="reveal section-padding">
+            <h2 class="section-title">𝐏𝐑𝐄𝐌𝐈𝐔𝐌 𝐒𝐔𝐈𝐓𝐒</h2>
+            <div class="slider-wrapper">
+                <button class="slide-arrow prev-arrow" onclick="slideSection('suits-track', 'left')"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-track" id="suits-track">
+                    <div class="product-card" data-name="Eco Wetsuit Full 3/2">
+                        <div class="img-container"><img src="suit.png" class="img-main"><img src="suit.png" class="img-hover"></div>
+                        <div class="p-info"><h3>𝐄𝐜𝐨 𝐖𝐞𝐭𝐬𝐮𝐢𝐭 𝐅𝐮𝐥𝐥 3/2</h3><p>𝟏,𝟐𝟎𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐄𝐜𝐨 𝐖𝐞𝐭𝐬𝐮𝐢𝐭 𝐅𝐮𝐥𝐥 3/2', '𝟏,𝟐𝟎𝟎 𝑫𝑯', 'suit.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
+                    </div>
+                    <div class="product-card" data-name="Thermal Suit 4/3">
+                        <div class="img-container"><img src="suit2.png" class="img-main"></div>
+                        <div class="p-info"><h3>𝐓𝐡𝐞𝐫𝐦𝐚𝐥 𝐒𝐮𝐢𝐭 4/3</h3><p>𝟏,𝟒𝟓𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐓𝐡𝐞𝐫𝐦𝐚𝐥 𝐒𝐮𝐢𝐭 4/3', '𝟏,𝟒𝟓𝟎 𝑫𝑯', 'suit2.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
+                    </div>
+                    <div class="product-card" data-name="Summer Shorty 2/2">
+                        <div class="img-container"><img src="suit4.png" class="img-main"></div>
+                        <div class="p-info"><h3>𝐒𝐮𝐦𝐦𝐞𝐫 𝐒𝐡𝐨𝐫𝐭𝐲 2/2</h3><p>𝟗𝟎𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐒𝐮𝐦𝐦𝐞𝐫 𝐒𝐡𝐨𝐫𝐭𝐲 2/2', '𝟗𝟎𝟎 𝑫𝑯', 'suit4.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
+                    </div>
+                </div>
+                <button class="slide-arrow next-arrow" onclick="slideSection('suits-track', 'right')"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <section id="accessories" class="reveal section-padding">
+            <h2 class="section-title">𝐀𝐂𝐂𝐄𝐒𝐒𝐎𝐑𝐈𝐄𝐒</h2>
+            <div class="slider-wrapper">
+                <button class="slide-arrow prev-arrow" onclick="slideSection('acc-track', 'left')"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-track" id="acc-track">S
+                    <div class="product-card" data-name="Pro Surf Leash 6ft">
+                        <div class="img-container"><img src="lish.png" class="img-main"><img src="lish.png" class="img-hover"></div>
+                        <div class="p-info"><h3>𝐏𝐫𝐨 𝐒𝐮𝐫𝐟 𝐋𝐞𝐚𝐬𝐡 𝟔𝐟𝐭</h3><p>𝟐𝟓𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐏𝐫𝐨 𝐒𝐮𝐫𝐟 𝐋𝐞𝐚𝐬𝐡 𝟔𝐟𝐭', '𝟐𝟓𝟎 𝑫𝑯', 'lish.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
+                    </div>
+                    <div class="product-card" data-name="Eco Surf Wax">
+                        <div class="img-container"><img src="xcah.png" class="img-main"></div>
+                        <div class="p-info"><h3>𝟖𝟔" 𝐂𝐥𝐚𝐬𝐬𝐢𝐜 𝐅𝐮𝐧 𝐁𝐨𝐚𝐫𝐝 𝐓𝐫𝐚𝐧𝐪𝐮𝐢𝐥 𝐁𝐥𝐮𝐞</h3><p>𝟏𝟓𝟎𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝟖𝟔 𝐂𝐥𝐚𝐬𝐬𝐢𝐜 𝐅𝐮𝐧 𝐁𝐨𝐚𝐫𝐝 𝐓𝐫𝐚𝐧𝐪𝐮𝐢𝐥 𝐁𝐥𝐮𝐞', '𝟏𝟓𝟎𝑫𝑯', 'xcah.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
+                    </div>
+                    <div class="product-card" data-name="Eco Surf Wax">
+                        <div class="img-container"><img src="wax.png" class="img-main"></div>
+                        <div class="p-info"><h3>𝐂𝐫𝐞𝐚𝐦 𝐒𝐮𝐫𝐟 𝐖𝐚𝐱 - 𝐒𝐚𝐧𝐝𝐞𝐝 𝐀𝐮𝐬𝐭𝐫𝐚𝐥𝐢𝐚</h3><p>𝟔𝟎 𝑫𝑯</p><button class="add-btn" onclick="addToBagRegistry('𝐂𝐫𝐞𝐚𝐦 𝐒𝐮𝐫𝐟 𝐖𝐚𝐱 - 𝐒𝐚𝐧𝐝𝐞𝐝 𝐀𝐮𝐬𝐭𝐫𝐚𝐥𝐢𝐚', '𝟔𝟎 𝑫𝑯', 'wax.png')">𝐀𝐃𝐃 𝐓𝐎 𝐁𝐀𝐆</button></div>
+                    </div>
+                </div>
+                <button class="slide-arrow next-arrow" onclick="slideSection('acc-track', 'right')"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            
+        </section>
+
+        <section id="contact" class="reveal contact-box">
+            <h2 class="section-title">𝐂𝐎𝐍𝐓𝐀𝐂𝐓</h2>
+            <div class="contact-links">
+                <a href="https://wa.me/yournumber" target="_blank"><i class="fab fa-whatsapp"></i>𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩</a>
+                <a href="https://instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i> 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦</a>
+                <a href="mailto:ecosurfshop1@gmail.com" target="_blank"><i class="fas fa-envelope"></i> 𝐄𝐦𝐚𝐢𝐥</a>
+            </div>
+        </section>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
